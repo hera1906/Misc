@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Produced by Beyond Compare 4 from Scooter Software -->
+<BCSessions Version="1" MinVersion="1">
+	<TTextCompareSession Value="TODO_LOCAL_14850 &lt;--> TODO_REMOTE_14850">
+		<LastModified Value="2019-09-06 10:59:25"/>
+		<Specs>
+			<Left Value="/home/build/Source/sxu/Software/Shared/webxi/TODO_LOCAL_14850"/>
+			<Right Value="/home/build/Source/sxu/Software/Shared/webxi/TODO_REMOTE_14850"/>
+		</Specs>
+	</TTextCompareSession>
+	<TSessionFolder>
+		<Items>
+			<TSessionFolder>
+				<Items>
+					<TTextCompareSession Value="StreamBuffer_LOCAL_21001.cpp &lt;--> StreamBuffer_REMOTE_21001.cpp">
+						<LastModified Value="2019-10-18 06:33:25"/>
+						<Specs>
+							<Left Value="/home/build/Source/sxu/Software/Shared/webxi/libWebXi/StreamBuffer_LOCAL_21001.cpp"/>
+							<Right Value="/home/build/Source/sxu/Software/Shared/webxi/libWebXi/StreamBuffer_REMOTE_21001.cpp"/>
+						</Specs>
+						<State>
+							<DisplayFilter Value="[showLeftMod, showRightMod, showDiffMod]"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="Proxy_LOCAL_21001.cpp &lt;--> Proxy_REMOTE_21001.cpp">
+						<LastModified Value="2019-10-18 06:33:08"/>
+						<Specs>
+							<Left Value="/home/build/Source/sxu/Software/Shared/webxi/libWebXi/Proxy_LOCAL_21001.cpp"/>
+							<Right Value="/home/build/Source/sxu/Software/Shared/webxi/libWebXi/Proxy_REMOTE_21001.cpp"/>
+						</Specs>
+						<State>
+							<DisplayFilter Value="[showLeftMod, showRightMod, showDiffMod]"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="TODO_LOCAL_15266 &lt;--> TODO_REMOTE_15266">
+						<LastModified Value="2019-09-06 11:02:46"/>
+						<Specs>
+							<Left Value="/home/build/Source/sxu/Software/Shared/webxi/TODO_LOCAL_15266"/>
+							<Right Value="/home/build/Source/sxu/Software/Shared/webxi/TODO_REMOTE_15266"/>
+						</Specs>
+						<State>
+							<DisplayFilter Value="[showLeftMod, showRightMod, showDiffMod]"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="private_LOCAL_14850.xml &lt;--> private_REMOTE_14850.xml">
+						<LastModified Value="2019-09-06 11:02:08"/>
+						<Specs>
+							<Left Value="/home/build/Source/sxu/Software/Shared/webxi/nbproject/private/private_LOCAL_14850.xml"/>
+							<Right Value="/home/build/Source/sxu/Software/Shared/webxi/nbproject/private/private_REMOTE_14850.xml"/>
+						</Specs>
+						<State>
+							<DisplayFilter Value="[showLeftMod, showRightMod, showDiffMod]"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="configurations_LOCAL_14850.xml &lt;--> configurations_REMOTE_14850.xml">
+						<LastModified Value="2019-09-06 11:01:42"/>
+						<Specs>
+							<Left Value="/home/build/Source/sxu/Software/Shared/webxi/nbproject/private/configurations_LOCAL_14850.xml"/>
+							<Right Value="/home/build/Source/sxu/Software/Shared/webxi/nbproject/private/configurations_REMOTE_14850.xml"/>
+						</Specs>
+						<State>
+							<DisplayFilter Value="[showLeftMod, showRightMod, showDiffMod]"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="configurations_LOCAL_14850.xml &lt;--> configurations_REMOTE_14850.xml">
+						<LastModified Value="2019-09-06 11:01:05"/>
+						<Specs>
+							<Left Value="/home/build/Source/sxu/Software/Shared/webxi/nbproject/configurations_LOCAL_14850.xml"/>
+							<Right Value="/home/build/Source/sxu/Software/Shared/webxi/nbproject/configurations_REMOTE_14850.xml"/>
+						</Specs>
+						<State>
+							<DisplayFilter Value="[showLeftMod, showRightMod, showDiffMod]"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="Service_LOCAL_6404.cpp &lt;--> Service_REMOTE_6404.cpp">
+						<LastModified Value="2019-05-23 07:25:45"/>
+						<Specs>
+							<Left Value="/home/build/Source/sxu/Software/SLM/SLM/source/Service_LOCAL_6404.cpp"/>
+							<Right Value="/home/build/Source/sxu/Software/SLM/SLM/source/Service_REMOTE_6404.cpp"/>
+						</Specs>
+					</TTextCompareSession>
+					<TTextCompareSession Value="Service_LOCAL_5111.cpp &lt;--> Service_REMOTE_5111.cpp">
+						<LastModified Value="2019-05-23 07:16:16"/>
+						<Specs>
+							<Left Value="/home/build/Source/sxu/Software/SLM/SLM/source/Service_LOCAL_5111.cpp"/>
+							<Right Value="/home/build/Source/sxu/Software/SLM/SLM/source/Service_REMOTE_5111.cpp"/>
+						</Specs>
+					</TTextCompareSession>
+					<TTextCompareSession Value="GUI_LOCAL_3865.cpp &lt;--> GUI_REMOTE_3865.cpp">
+						<LastModified Value="2019-01-16 05:36:41"/>
+						<Specs>
+							<Left Value="/home/build/Source/sxu/Software/SLM/SLM/source/GUI_LOCAL_3865.cpp"/>
+							<Right Value="/home/build/Source/sxu/Software/SLM/SLM/source/GUI_REMOTE_3865.cpp"/>
+						</Specs>
+					</TTextCompareSession>
+					<TTextCompareSession Value="WebXiDeviceNodes_LOCAL_11589.cpp &lt;--> WebXiDeviceNodes_REMOTE_11589.cpp">
+						<LastModified Value="2018-12-10 10:38:12"/>
+						<Specs>
+							<Left Value="/home/build/Source/sxu/Software/SLM/SLM/source/WebXiDeviceNodes_LOCAL_11589.cpp"/>
+							<Right Value="/home/build/Source/sxu/Software/SLM/SLM/source/WebXiDeviceNodes_REMOTE_11589.cpp"/>
+						</Specs>
+					</TTextCompareSession>
+					<TTextCompareSession Value="qt-Debug_LOCAL_2220.pro &lt;--> qt-Debug_REMOTE_2220.pro">
+						<LastModified Value="2018-12-10 06:48:42"/>
+						<Specs>
+							<Left Value="/home/build/Source/sxu/Software/SLM/SLM/nbproject/qt-Debug_LOCAL_2220.pro"/>
+							<Right Value="/home/build/Source/sxu/Software/SLM/SLM/nbproject/qt-Debug_REMOTE_2220.pro"/>
+						</Specs>
+					</TTextCompareSession>
+					<TTextCompareSession Value="Makefile-Debug_LOCAL_2220.mk &lt;--> Makefile-Debug_REMOTE_2220.mk">
+						<LastModified Value="2018-12-10 06:47:51"/>
+						<Specs>
+							<Left Value="/home/build/Source/sxu/Software/SLM/SLM/nbproject/Makefile-Debug_LOCAL_2220.mk"/>
+							<Right Value="/home/build/Source/sxu/Software/SLM/SLM/nbproject/Makefile-Debug_REMOTE_2220.mk"/>
+						</Specs>
+					</TTextCompareSession>
+					<TTextCompareSession Value="CMakeLists_LOCAL_2220.txt &lt;--> CMakeLists_REMOTE_2220.txt">
+						<LastModified Value="2018-12-10 06:47:02"/>
+						<Specs>
+							<Left Value="/home/build/Source/sxu/Software/SLM/CMakeLists_LOCAL_2220.txt"/>
+							<Right Value="/home/build/Source/sxu/Software/SLM/CMakeLists_REMOTE_2220.txt"/>
+						</Specs>
+					</TTextCompareSession>
+					<TTextCompareSession Value="TrafficLightControl_LOCAL_27324.cpp &lt;--> TrafficLightControl_REMOTE_27324.cpp">
+						<LastModified Value="2018-12-06 08:49:37"/>
+						<Specs>
+							<Left Value="/home/build/Source/sxu/Software/SLM/SLM/source/TrafficLightControl_LOCAL_27324.cpp"/>
+							<Right Value="/home/build/Source/sxu/Software/SLM/SLM/source/TrafficLightControl_REMOTE_27324.cpp"/>
+						</Specs>
+					</TTextCompareSession>
+					<TTextCompareSession Value="TrafficLightControl_LOCAL_27324.h &lt;--> TrafficLightControl_REMOTE_27324.h">
+						<LastModified Value="2018-12-06 08:49:06"/>
+						<Specs>
+							<Left Value="/home/build/Source/sxu/Software/SLM/SLM/include/TrafficLightControl_LOCAL_27324.h"/>
+							<Right Value="/home/build/Source/sxu/Software/SLM/SLM/include/TrafficLightControl_REMOTE_27324.h"/>
+						</Specs>
+					</TTextCompareSession>
+					<TTextCompareSession Value="Util_LOCAL_14301.cpp &lt;--> Util_REMOTE_14301.cpp">
+						<LastModified Value="2018-08-30 09:37:32"/>
+						<Specs>
+							<Left Value="/home/build/Source/sxu/Software/Shared/webxi/libWebXi/Util_LOCAL_14301.cpp"/>
+							<Right Value="/home/build/Source/sxu/Software/Shared/webxi/libWebXi/Util_REMOTE_14301.cpp"/>
+						</Specs>
+					</TTextCompareSession>
+				</Items>
+			</TSessionFolder>
+			<TTextCompareSession>
+				<State>
+					<DisplayFilter Value="[showLeftMod, showRightMod, showDiffMod]"/>
+				</State>
+			</TTextCompareSession>
+		</Items>
+	</TSessionFolder>
+</BCSessions>

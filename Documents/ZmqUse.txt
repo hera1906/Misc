@@ -1,0 +1,81 @@
+RequestInfo: Client (Request) -> Server (Reply)
+  Description:
+    Request node information (i.e. value or metadata) from server
+  Request:
+
+
+
+
+    <AbsolutePath>,
+    (
+        <RelativePath>,
+        ( One or more of:
+            "Value", 
+            "Metadata",
+            "ValueType",
+            "MaxVectorLength",
+            "Flags",
+            "OwnerId",
+            "All"
+        ),
+        <doRecursive>
+    )+
+
+  Reply:
+    <AbsolutePath>, 
+    (
+        <RelativePath>, 
+        ( One of:
+            "Value",
+            "Metadata",
+            "ValueType",
+            "MaxVectorLength",
+            "Flags",
+            "OwnerId"
+          Followed by:
+            <Info>
+        )+
+    )+
+
+PublishChange: Server (Publisher) -> Client (Subscriber)
+  Description:
+    All node changes are published here
+  Content:
+    <AbsolutePath>,(<RelativePath>, <Value>)+
+
+ClientRequest: Client (Request) -> Server (Router)
+  Description:
+    Request node change or action
+  Request: <ClientId> followed one of:
+    "CreateNodes", <AbsolutePath>, (<RelativePath>, <ValueType>, <MaxVectorLength>, <Flags>, <OwnerId>, <Metadata>)+
+    "ChangeNodeValues, <AbsolutePath>, (<RelativePath>, <Value>, <ArrayOffset>, <Length>))+
+    "ChangeNodeMetadata", <AbsolutePath>, (<RelativePath>, <Metadata>)+
+    "PostNode", <AbsolutePath>, <Body>
+    "PerformAction", <AbsolutePath>, <Action>, <Argument>
+    "RefreshNodeValues", <AbsolutePath>, (<RelativePath>)+
+    "DeleteNodes", <AbsolutePath>, (<RelativePath>, <Behaviour>)+
+    "StateEvent", <ApplicationName>
+    "StatusEvent", <ChannelType>, <ChannelId>, <StatusType>, <V1>, <V2>, <Str>
+    "TriggerEvent",<SequenceId>, <TriggerType>
+    "ConfigurationEvent", (<Node>, <Value>)
+    "DebugMessage", <Message>
+    "CreateSequences", (<SequenceId>, <ChannelType>, (<DescriptorId>,<Value>)+)+
+    "ChangeSequences", (<SequenceId>, (<DescriptorId> <ValueType>, <Value>)+)+
+    "DeleteSequences", (<SequenceId>)+
+  Reply:
+    <ClientId>, "", <Status>, <Message>
+
+ServerRequest: Server (Router) -> Client (Dealer)
+  Description:
+    Server requests change or action from owning client
+  Request:
+    <ClientId>, "", <OriginalRequesterId> followed by one of:
+      "ChangeValues", <AbsolutePath>, (<RelativePath>, <Value>)+
+      "PerformAction", <AbsolutePath>, <Action>, <Argument>
+  Reply:
+    <ClientId>, "", <OriginalRequesterId>, <Status>, <Message>
+
+TODO:
+  Streaming?
+  Check WebSocket?
+  

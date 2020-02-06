@@ -1,0 +1,25 @@
+server & client:
+----------------------------
+server without arguments waits for a TCP connection on port 8888, then transfers
+this connection to the client
+
+server with argument tries to open the argument as a file, then transfers the
+file to the client after having read  it reads 32 bytes from the file.
+
+Usage:
+file example:
+  server test.txt
+  client
+
+socket example:
+  server
+  telnet 127.0.0.1 8888
+  client
+
+  Write something in telnet to see that the descriptor has been transferred
+
+
+
+fd-passing:
+----------------------------
+   Simple program that transfers a fd 

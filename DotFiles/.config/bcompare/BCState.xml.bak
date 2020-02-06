@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Produced by Beyond Compare 4 from Scooter Software -->
+<BCState Version="1" MinVersion="1">
+	<TBcState>
+		<FirstStartup Value="False"/>
+		<FormPositions>
+			<TSessionSaveAsDialog Value="701;373;1219;706"/>
+			<TViewFrame Value="144;94;1776;985"/>
+		</FormPositions>
+	</TBcState>
+	<TCheckForUpdatesState>
+		<Build Value="24364"/>
+		<LastChecked Value="2019-10-18 06:31:01"/>
+	</TCheckForUpdatesState>
+	<THomeState>
+		<SessionType Value="TTextCompareSession"/>
+	</THomeState>
+	<TTextCompareState>
+		<LeftMRUSpecs>
+			<_0 Value="/home/build/Source/sxu/Software/Shared/webxi/libWebXi/StreamBuffer_LOCAL_21001.cpp"/>
+			<_1 Value="/home/build/Source/sxu/Software/Shared/webxi/libWebXi/Proxy_LOCAL_21001.cpp"/>
+			<_2 Value="/home/build/Source/sxu/Software/Shared/webxi/TODO_LOCAL_15266"/>
+			<_3 Value="/home/build/Source/sxu/Software/Shared/webxi/nbproject/private/private_LOCAL_14850.xml"/>
+			<_4 Value="/home/build/Source/sxu/Software/Shared/webxi/nbproject/private/configurations_LOCAL_14850.xml"/>
+			<_5 Value="/home/build/Source/sxu/Software/Shared/webxi/nbproject/configurations_LOCAL_14850.xml"/>
+			<_6 Value="/home/build/Source/sxu/Software/Shared/webxi/TODO_LOCAL_14850"/>
+			<_7 Value="/home/build/Source/sxu/Software/SLM/SLM/source/Service_LOCAL_6404.cpp"/>
+			<_8 Value="/home/build/Source/sxu/Software/SLM/SLM/source/Service_LOCAL_5111.cpp"/>
+		</LeftMRUSpecs>
+		<MRUFonts>
+			<_0 Value="Andale Mono;9"/>
+		</MRUFonts>
+		<RightMRUSpecs>
+			<_0 Value="/home/build/Source/sxu/Software/Shared/webxi/libWebXi/StreamBuffer_REMOTE_21001.cpp"/>
+			<_1 Value="/home/build/Source/sxu/Software/Shared/webxi/libWebXi/Proxy_REMOTE_21001.cpp"/>
+			<_2 Value="/home/build/Source/sxu/Software/Shared/webxi/TODO_REMOTE_15266"/>
+			<_3 Value="/home/build/Source/sxu/Software/Shared/webxi/nbproject/private/private_REMOTE_14850.xml"/>
+			<_4 Value="/home/build/Source/sxu/Software/Shared/webxi/nbproject/private/configurations_REMOTE_14850.xml"/>
+			<_5 Value="/home/build/Source/sxu/Software/Shared/webxi/nbproject/configurations_REMOTE_14850.xml"/>
+			<_6 Value="/home/build/Source/sxu/Software/Shared/webxi/TODO_REMOTE_14850"/>
+			<_7 Value="/home/build/Source/sxu/Software/SLM/SLM/source/Service_REMOTE_6404.cpp"/>
+			<_8 Value="/home/build/Source/sxu/Software/SLM/SLM/source/Service_REMOTE_5111.cpp"/>
+		</RightMRUSpecs>
+	</TTextCompareState>
+</BCState>

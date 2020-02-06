@@ -1,0 +1,17 @@
+[user]
+	email = helge.rasmussen@bksv.com
+	name = Helge Rasmussen
+[gc]
+	autoDetach = false
+[merge]
+	tool = bc3 
+[diff]
+	tool = bc3 
+[difftool "bc3"]
+	trustExitCode = true
+[mergetool "bc3"]
+	trustExitCode = true
+	cmd = /usr/bin/bcompare $LOCAL\n    $REMOTE -savetarget=$MERGED 
+
+[push]
+	default = simple

@@ -1,0 +1,56 @@
+[global_config]
+[keybindings]
+  go_down = <Alt>j
+  go_left = <Alt>h
+  go_next = <Primary>a
+  go_right = <Alt>l
+  go_up = <Alt>k
+  layout_launcher = <Shift><Alt>l
+[layouts]
+  [[default]]
+    [[[child0]]]
+      fullscreen = True
+      last_active_term = 40510f6b-7e6d-4c58-82fb-13f85468d01a
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 0:0
+      size = 1920, 1080
+      title = terminator
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 958
+      ratio = 0.500261096606
+      type = HPaned
+    [[[child2]]]
+      order = 0
+      parent = child1
+      position = 538
+      ratio = 0.500465116279
+      type = VPaned
+    [[[terminal3]]]
+      order = 0
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = 40510f6b-7e6d-4c58-82fb-13f85468d01a
+    [[[terminal4]]]
+      order = 1
+      parent = child2
+      profile = default
+      type = Terminal
+      uuid = ac63c011-3a40-48f1-8542-b4cda62e18f8
+    [[[terminal5]]]
+      order = 1
+      parent = child1
+      profile = default
+      type = Terminal
+      uuid = f7ce3bd9-602e-45c7-b816-f0aa1b5485e5
+[plugins]
+[profiles]
+  [[default]]
+    cursor_color = "#aaaaaa"
+    login_shell = True
