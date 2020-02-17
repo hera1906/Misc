@@ -1,6 +1,9 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" ========================================================
+" Vundle plugin manager
+" ========================================================
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -10,39 +13,25 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 "
-" The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
 
-Plugin 'tpope/vim-dispatch'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'tmhedberg/matchit'
-Plugin 'sickill/vim-pasta'
-Plugin 'scrooloose/syntastic'
-Plugin 'ervandew/supertab'
-Plugin 'vim-scripts/ZoomWin'
-Plugin 'vim-scripts/tComment'
-"Plugin 'ctrlpvim/ctrlp'
-Plugin 'tmux-plugins/vim-tmux'
-Plugin 'Valloric/YouCompleteMe'
-
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
-
-" git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
-
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-"Plugin 'ascenator/L9', {'name': 'newL9'}
+"Plug 'ajh17/VimCompletesMe'     " Completion plugins
+Plugin 'natebosch/vim-lsc'      " Language server plugin:
+Plugin 'liuchengxu/vista.vim'
+Plugin 'm-pilia/vim-ccls'
+Plugin 'vim-scripts/DoxygenToolkit.vim'
+Plugin 'tpope/vim-commentary'
+"Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'rhysd/vim-clang-format'
+Plugin 'justinmk/vim-dirvish'
+Plugin 'jreybert/vimagit'
+Plugin 'tpope/vim-fugitive'
+Plugin 'mbbill/undotree'
+Plugin 'junegunn/fzf', { 'do': './install --bin' }
+Plugin 'junegunn/fzf.vim'
+Plugin 'dense-analysis/ale'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -58,62 +47,279 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+"
+
+
+
+" ========================================================
+" NerdTree
+" ========================================================
+" C-n opens nerdtree
+map <C-n> :NERDTreeToggle<CR>
 
 
 
 
 
-" Leader
-let mapleader = " "
+" ==========================================================
+" vim-lsc (Language Server)
+" ==========================================================
+" vim-lsc lsp completion
+let g:lsc_server_commands = {
+\ 'cpp': {
+\    'command': 'ccls',
+\    'message_hooks': {
+\        'initialize': {
+\            'initializationOptions': {'cache': {'directory': '/tmp/ccls/cache'}},
+\            'rootUri': {m, p -> lsc#uri#documentUri(fnamemodify(findfile('compile_commands.json', expand('%:p') . ';'), ':p:h'))}
+\        },
+\    },
+\    'log_level': -1,
+\    'suppress_stderr': v:true,
+\  },
+\  'python': {
+\  'command': 'pyls',
+\  },
+\}
+
+" Apply the defaults with a few overrides:
+"let g:lsc_auto_map = v:true
+let g:lsc_auto_map = {'defaults': v:true, 'ShowHover': 'K'}
+set completeopt=menu,menuone,noinsert,noselect
+
+let g:lsc_enable_autocomplete  = v:true
+let g:lsc_enable_diagnostics   = v:false
+let g:lsc_reference_highlights = v:false
+let g:lsc_trace_level          = 'off'
+
+" ==========================================================
+" vista.vim
+" ==========================================================
+" Vista
+" Set the executive for some filetypes explicitly. Use the explicit executive
+" instead of the default one for these filetypes when using `:Vista` without
+" specifying the executive.
+let g:vista_executive_for = {
+  \ 'cpp': 'vim_lsc',
+  \ 'python': 'vim_lsc',
+  \ }
+
+"newrw
+let g:netrw_fastbrowse=0 "fix hanging netrw buffer
+" nerdtree like setup https://shapeshed.com/vim-netrw/
+" run with :Vex
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 20
+
+
+" ==========================================================
+" ctrlp
+" ==========================================================
+"let g:crtlp_map='<F11>'
+" search for files
+nnoremap <leader>p :CtrlP<CR>
+" search for buffers
+nnoremap <leader>b :CtrlPBuffers:<CR>
+" search for buffers
+" ripgrep
+if executable('rg')
+ " Use rg over grep
+ set grepprg=rg\ --vimgrep\ --no-heading
+ set grepformat=%f:%l:%c:%m,%f:%l:%m
+
+ " Use rg in CtrlP for listing files. Lightning fast and respects .gitignore
+ let g:ctrlp_user_command = 'rg --files %s'
+
+ " rg is fast enough that CtrlP doesn't need to cache
+ let g:ctrlp_use_caching = 0
+else
+ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+end
+
+
+" ==========================================================
+" clang-format
+" ==========================================================
+let g:clang_format#enable_fallback_style = 0
+"style based on microsoft
+let g:clang_format#style_options = {
+\ "AccessModifierOffset" : "-2",
+\ "AlignAfterOpenBracket" : "Align",
+\ "AlignConsecutiveAssignments" : "false",
+\ "AlignConsecutiveDeclarations" : "false",
+\ "AlignEscapedNewlines" : "Right",
+\ "AlignOperands" : "true",
+\ "AlignTrailingComments" : "true",
+\ "AllowAllParametersOfDeclarationOnNextLine" : "true",
+\ "AllowShortBlocksOnASingleLine" : "false",
+\ "AllowShortCaseLabelsOnASingleLine" : "false",
+\ "AllowShortFunctionsOnASingleLine" : "None",
+\ "AllowShortIfStatementsOnASingleLine" : "false",
+\ "AllowShortLoopsOnASingleLine" : "false",
+\ "AlwaysBreakAfterDefinitionReturnType" : "None",
+\ "AlwaysBreakAfterReturnType" : "None",
+\ "AlwaysBreakBeforeMultilineStrings" : "false",
+\ "AlwaysBreakTemplateDeclarations" : "MultiLine",
+\ "BinPackArguments" : "true",
+\ "BinPackParameters" : "true",
+\ "BraceWrappingAfterClass" : "true",
+\ "BraceWrappingAfterControlStatement" : "true",
+\ "BraceWrappingAfterEnum" :       "true",
+\ "BraceWrappingAfterFunction" :   "true",
+\ "BraceWrappingAfterNamespace" :  "true",
+\ "BraceWrappingAfterObjCDeclaration" : "true",
+\ "BraceWrappingAfterStruct" :     "true",
+\ "BraceWrappingAfterUnion" :      "false",
+\ "BraceWrappingAfterExternBlock" : "true",
+\ "BraceWrappingBeforeCatch" :     "true",
+\ "BraceWrappingBeforeElse" :      "true",
+\ "BraceWrappingIndentBraces" :    "false",
+\ "BraceWrappingSplitEmptyFunction" : "true",
+\ "BraceWrappingSplitEmptyRecord" : "true",
+\ "BraceWrappingSplitEmptyNamespace" : "true",
+\ "BreakBeforeBinaryOperators" : "None",
+\ "BreakBeforeBraces" : "Custom",
+\ "BreakBeforeInheritanceComma" : "false",
+\ "BreakInheritanceList" : "BeforeColon",
+\ "BreakBeforeTernaryOperators" : "true",
+\ "BreakConstructorInitializersBeforeComma" : "true",
+\ "BreakConstructorInitializers" : "BeforeColon",
+\ "BreakAfterJavaFieldAnnotations" : "false",
+\ "BreakStringLiterals" : "true",
+\ "ColumnLimit" : "120",
+\ "CompactNamespaces" : "false",
+\ "ConstructorInitializerAllOnOneLineOrOnePerLine" : "false",
+\ "ConstructorInitializerIndentWidth" : "4",
+\ "ContinuationIndentWidth" : "4",
+\ "Cpp11BracedListStyle" : "true",
+\ "DerivePointerAlignment" : "false",
+\ "DisableFormat" : "false",
+\ "ExperimentalAutoDetectBinPacking" : "false",
+\ "FixNamespaceComments" : "true",
+\ "IncludeBlocks" :   "Preserve",
+\ "IndentCaseLabels" : "false",
+\ "IndentPPDirectives" : "None",
+\ "IndentWidth" : "4",
+\ "IndentWrappedFunctionNames" : "false",
+\ "JavaScriptQuotes" : "Leave",
+\ "JavaScriptWrapImports" : "true",
+\ "KeepEmptyLinesAtTheStartOfBlocks" : "true",
+\ "MaxEmptyLinesToKeep" : "1",
+\ "NamespaceIndentation" : "None",
+\ "ObjCBinPackProtocolList" : "Auto",
+\ "ObjCBlockIndentWidth" : "2",
+\ "ObjCSpaceAfterProperty" : "false",
+\ "ObjCSpaceBeforeProtocolList" : "true",
+\ "PenaltyBreakAssignment" : "2",
+\ "PenaltyBreakBeforeFirstCallParameter" : "19",
+\ "PenaltyBreakComment" : "300",
+\ "PenaltyBreakFirstLessLess" : "120",
+\ "PenaltyBreakString" : "1000",
+\ "PenaltyBreakTemplateDeclaration" : "10",
+\ "PenaltyExcessCharacter" : "1000000",
+\ "PenaltyReturnTypeOnItsOwnLine" : "1000",
+\ "PointerAlignment" : "Right",
+\ "ReflowComments" : "true",
+\ "SortIncludes" : "true",
+\ "SortUsingDeclarations" : "true",
+\ "SpaceAfterCStyleCast" : "false",
+\ "SpaceAfterTemplateKeyword" : "true",
+\ "SpaceBeforeAssignmentOperators" : "true",
+\ "SpaceBeforeCpp11BracedList" : "false",
+\ "SpaceBeforeCtorInitializerColon" : "true",
+\ "SpaceBeforeInheritanceColon" : "true",
+\ "SpaceBeforeParens" : "ControlStatements",
+\ "SpaceBeforeRangeBasedForLoopColon" : "true",
+\ "SpaceInEmptyParentheses" : "false",
+\ "SpacesBeforeTrailingComments" : "1",
+\ "SpacesInAngles" :  "false",
+\ "SpacesInContainerLiterals" : "true",
+\ "SpacesInCStyleCastParentheses" : "false",
+\ "SpacesInParentheses" : "false",
+\ "SpacesInSquareBrackets" : "false",
+\ "TabWidth" :        "4",
+\ "UseTab" :          "Never",
+\ "Standard" : "C++11"}
+
+"run clang-format on save very slow on huge files
+"augroup clang_format
+"    autocmd FileType c,cpp
+"       \ autocmd! clang_format BufWritePre <buffer> :ClangFormat
+"augroup END
+
+" map to <Leader>cf in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+
+" ==========================================================
+" UndoTree
+" ==========================================================
+if has("persistent_undo")
+    let myUndoDir = $HOME . "/.vim_undodir"
+    call mkdir(myUndoDir, 'p')
+    let &undodir = myUndoDir
+    set undofile
+endif
+
+" ==========================================================
+"Ale
+" ==========================================================
+let g:ale_fixers = {
+\    '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['black'],
+\}
+let g:ale_linters = {
+\   'cpp': ['ccls', 'clang-tidy'],
+\   'python': ['flake8'],
+\}
+
+let g:ale_cpp_ccls_init_options = {
+\   'cache': {
+\       'directory': '/tmp/ccls/cache'
+\   }
+\ }
+
+let g:ale_fix_on_save = 1
+
+
+
+" ========================================================
+" Vim Setup
+" ========================================================
+" Set leader to space
+noremap "\<Space>" <Nop>
+let mapleader = "\<Space>"
 
 set backspace=2   " Backspace deletes like most programs in insert mode
-"set nobackup
-"set nowritebackup
-"set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
-set history=50
+set history=50    " Sets how many lines of history VIM has to remember
 set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 
-" Pathogen bundle manager
-"xxxx execute pathogen#infect()
-"xxxx filetype plugin indent on
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Files, backups and undo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowritebackup
+set nowb
+set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
 
-" C-n opens nerdtree
-map <C-n> :NERDTreeToggle<CR>
-
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_cpp_check_header = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_cpp_include_dirs = ['/home/build/Source/sxu/Software/buildx86/install_dir/include']
 
 " Folding
-set foldmethod=marker
+"set foldmethod=marker
+set foldmethod=syntax           " Folding based on syntax
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
-
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
-endif
-
-" Load matchit.vim, but only if the user hasn't installed a newer version.
-if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
-  runtime! macros/matchit.vim
-endif
-
 
 augroup vimrcEx
   autocmd!
@@ -136,47 +342,43 @@ augroup END
 " shell for syntax highlighting purposes.
 let g:is_posix = 1
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Softtabs, 4 spaces
 set tabstop=4
 set shiftwidth=4
 set shiftround
 set expandtab
+set ai "Auto indent
 set smartindent
 set smarttab
 
-" include boost when looking for include files
-set include=^\\s*#\\s*include\ \\(<boost/\\)\\@!
+" Linebreak on 500 characters
+set lbr
+set tw=500
+set wrap "Wrap lines
 
-" Where to look for tags
-set tags=./tags,tags,/usr/local/include/tags,/usr/include/tags
-" set tags=./tags,tags
+set encoding=utf8
+set confirm        " Show dialog box when unsaved changes...
+
+set magic          " For regular expressions turn magic on
+
+set showmatch      " Show matching brackets when text indicator is over them
+set mat=1          " How many tenths of a second to blink when matching brackets
+
+set hlsearch       " Highlight search results
+
+set incsearch      " Makes search act like search in modern browsers
+
 
 " Display extra whitespace
 " set list listchars=tab:»·,trail:·,nbsp:·
 
-" Use one space, not two, after punctuation.
-set nojoinspaces
+set nojoinspaces   " Use one space, not two, after punctuation.
 
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-
-  if !exists(":Ag")
-    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-    nnoremap \ :Ag<SPACE>
-  endif
-endif
-
-" Make it obvious where 80 characters is
 "set textwidth=120
-"set colorcolumn=+1
+"set colorcolumn=+1 " Make it obvious where 80 characters is
 
 " Line Numbers
 "set relativenumber
@@ -186,6 +388,7 @@ endif
 " Tab completion
 " will insert tab at beginning of line,
 " will use completion if not at beginning
+set wildmenu
 set wildmode=list:longest,list:full
 function! InsertTabWrapper()
     let col = col('.') - 1
@@ -198,14 +401,13 @@ endfunction
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
 
+"use system clipboard if avaiable
+if has('unnamedplus')
+  set clipboard+=unnamedplus
+end
+
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
-
-" Get off my lawn
-" nnoremap <Left> :echoe "Use h"<CR>
-" nnoremap <Right> :echoe "Use l"<CR>
-" nnoremap <Up> :echoe "Use k"<CR>
-" nnoremap <Down> :echoe "Use j"<CR>
 
 " vim-test mappings
 nnoremap <silent> <Leader>t :TestFile<CR>
@@ -240,6 +442,55 @@ set complete+=kspell
 
 " Always use vertical diffs
 set diffopt+=vertical
+
+" =============================================================
+" => GUI related
+" =============================================================
+" Set font according to system
+"if has("linux")
+"    SET GFn=Consolas\ Regular:h11
+"elseif has("unix")
+"    set gfn=Menlo\ Regular:11
+"endif
+"
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=l  "remove left-hand scroll bar
+
+set guifont=Fira\ Code\ 10
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable syntax highlighting
+syntax enable
+
+" must be before setting color scheme
+if $TERM == "xterm-256color"
+	set t_Co=256
+endif
+
+try
+    colorscheme apprentice
+catch
+endtry
+
+" Clear highlighting and redraw screen on ctrl-l in normal mode
+nnoremap <silent> <C-L> :noh<CR><C-L>
+
+"remove trailing whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
+
+
+" Triger `autoread` when files changes on disk
+" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
+" https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
+"    autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
+"            \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
+
+" Notification after file change
+" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
+"autocmd FileChangedShellPost *
+"  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")

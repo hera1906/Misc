@@ -12,6 +12,46 @@
 		<Items>
 			<TSessionFolder>
 				<Items>
+					<TTextCompareSession Value="complex_types_LOCAL_3573.md &lt;--> complex_types_REMOTE_3573.md">
+						<LastModified Value="2019-11-22 10:56:56"/>
+						<Specs>
+							<Left Value="/home/build/Source/NExT/streaming-spec/complex_types_LOCAL_3573.md"/>
+							<Right Value="/home/build/Source/NExT/streaming-spec/complex_types_REMOTE_3573.md"/>
+						</Specs>
+						<State>
+							<DisplayFilter Value="[showLeftMod, showRightMod, showDiffMod]"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="complex_types_LOCAL_3271.md &lt;--> complex_types_REMOTE_3271.md">
+						<LastModified Value="2019-11-12 05:51:04"/>
+						<Specs>
+							<Left Value="/home/build/Source/NExT/streaming-spec/complex_types_LOCAL_3271.md"/>
+							<Right Value="/home/build/Source/NExT/streaming-spec/complex_types_REMOTE_3271.md"/>
+						</Specs>
+						<State>
+							<DisplayFilter Value="[showLeftMod, showRightMod, showDiffMod]"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="Proxy_LOCAL_7805.cpp &lt;--> Proxy_REMOTE_7805.cpp">
+						<LastModified Value="2019-10-30 09:14:04"/>
+						<Specs>
+							<Left Value="/home/build/Source/sxu/Software/Shared/webxi/libWebXi/Proxy_LOCAL_7805.cpp"/>
+							<Right Value="/home/build/Source/sxu/Software/Shared/webxi/libWebXi/Proxy_REMOTE_7805.cpp"/>
+						</Specs>
+						<State>
+							<DisplayFilter Value="[showLeftMod, showRightMod, showDiffMod]"/>
+						</State>
+					</TTextCompareSession>
+					<TTextCompareSession Value="StreamBuffer_LOCAL_24005.cpp &lt;--> StreamBuffer_REMOTE_24005.cpp">
+						<LastModified Value="2019-10-30 05:57:38"/>
+						<Specs>
+							<Left Value="/home/build/Source/sxu/Software/Shared/webxi/libWebXi/StreamBuffer_LOCAL_24005.cpp"/>
+							<Right Value="/home/build/Source/sxu/Software/Shared/webxi/libWebXi/StreamBuffer_REMOTE_24005.cpp"/>
+						</Specs>
+						<State>
+							<DisplayFilter Value="[showLeftMod, showRightMod, showDiffMod]"/>
+						</State>
+					</TTextCompareSession>
 					<TTextCompareSession Value="Proxy_LOCAL_13249.cpp &lt;--> Proxy_REMOTE_13249.cpp">
 						<LastModified Value="2019-10-24 06:05:57"/>
 						<Specs>

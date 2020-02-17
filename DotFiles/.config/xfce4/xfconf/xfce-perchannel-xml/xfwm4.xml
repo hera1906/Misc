@@ -83,5 +83,6 @@
       <value type="string" value="Workspace 3"/>
       <value type="string" value="Workspace 4"/>
     </property>
+    <property name="cycle_raise" type="bool" value="false"/>
   </property>
 </channel>

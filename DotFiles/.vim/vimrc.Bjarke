@@ -1,0 +1,372 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+et nocompatible        " must be first line
+set background=dark
+" Sets how many lines of history VIM has to remember
+set history=500
+
+" Enable filetype plugins
+filetype plugin on
+filetype indent on
+
+" Set to auto read when a file is changed from the outside
+set autoread
+
+" set leader to space
+noremap "\<Space>" <Nop>
+let mapleader = "\<Space>"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => GUI related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set font according to system
+"if has("linux")
+"    SET GFn=Consolas\ Regular:h11
+"elseif has("unix")
+"    set gfn=Menlo\ Regular:11
+"endif
+
+set guifont=Fira\ Code\ 10
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable syntax highlighting
+syntax enable
+set foldmethod=syntax           " folding based on syntax
+
+" must be before setting color scheme
+if $TERM == "xterm-256color"
+	set t_Co=256
+endif
+
+try
+    colorscheme apprentice
+catch
+endtry
+
+
+
+" For regular expressions turn magic on
+set magic
+
+" Show matching brackets when text indicator is over them
+set showmatch
+" How many tenths of a second to blink when matching brackets
+set mat=1
+
+" Highlight search results
+set hlsearch
+
+" Makes search act like search in modern browsers
+set incsearch
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Files, backups and undo
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Turn backup off, since most stuff is in SVN, git et.c anyway...
+set nobackup
+set nowritebackup
+set nowb
+set noswapfile
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Text, tab and indent related
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use spaces instead of tabs
+set expandtab
+
+" Be smart when using tabs ;)
+set smarttab
+
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
+
+set number
+
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=l  "remove left-hand scroll bar
+" Linebreak on 500 characters
+set lbr
+set tw=500
+
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
+
+set encoding=utf8
+set confirm
+
+"tabcompeltion on : commands
+set wildmenu
+set wildmode=longest:list,full
+
+"use system clipboard if avaiable
+if has('unnamedplus')
+  set clipboard+=unnamedplus
+end
+
+
+" Clear highlighting and redraw screen on ctrl-l in normal mode
+nnoremap <silent> <C-L> :noh<CR><C-L>
+
+"remove trailing whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
+
+" Triger `autoread` when files changes on disk
+" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
+" https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
+    autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
+            \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
+
+" Notification after file change
+" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
+autocmd FileChangedShellPost *
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
+"===========================================================
+" PLUGINS
+"===========================================================
+
+" Automatically install vim-plug and run PlugInstall if vim-plug is not found.
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Initialize vim-plug.
+call plug#begin('~/.vim/plugged')
+
+"-----------------------------
+" Completion plugins
+"-----------------------------
+"Plug 'ajh17/VimCompletesMe'
+" Language server plugin:
+Plug 'natebosch/vim-lsc'
+Plug 'liuchengxu/vista.vim'
+Plug 'm-pilia/vim-ccls'
+Plug 'vim-scripts/DoxygenToolkit.vim'
+Plug 'tpope/vim-commentary'
+"Plug 'ctrlpvim/ctrlp.vim'
+Plug 'rhysd/vim-clang-format'
+Plug 'justinmk/vim-dirvish'
+Plug 'jreybert/vimagit'
+Plug 'tpope/vim-fugitive'
+Plug 'mbbill/undotree'
+Plug 'junegunn/fzf', { 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+Plug 'dense-analysis/ale'
+call plug#end()
+
+
+
+" vim-lsc lsp completion
+let g:lsc_server_commands = {
+\ 'cpp': {
+\    'command': 'ccls',
+\    'message_hooks': {
+\        'initialize': {
+\            'initializationOptions': {'cache': {'directory': '/tmp/ccls/cache'}},
+\            'rootUri': {m, p -> lsc#uri#documentUri(fnamemodify(findfile('compile_commands.json', expand('%:p') . ';'), ':p:h'))}
+\        },
+\    },
+\    'log_level': -1,
+\    'suppress_stderr': v:true,
+\  },
+\  'python': {
+\  'command': 'pyls',
+\  },
+\}
+
+" Apply the defaults with a few overrides:
+"let g:lsc_auto_map = v:true
+let g:lsc_auto_map = {'defaults': v:true, 'ShowHover': 'K'}
+set completeopt=menu,menuone,noinsert,noselect
+
+let g:lsc_enable_autocomplete  = v:true
+let g:lsc_enable_diagnostics   = v:false
+let g:lsc_reference_highlights = v:false
+let g:lsc_trace_level          = 'off'
+
+" Vista
+" Set the executive for some filetypes explicitly. Use the explicit executive
+" instead of the default one for these filetypes when using `:Vista` without
+" specifying the executive.
+let g:vista_executive_for = {
+  \ 'cpp': 'vim_lsc',
+  \ 'python': 'vim_lsc',
+  \ }
+
+"newrw
+let g:netrw_fastbrowse=0 "fix hanging netrw buffer
+" nerdtree like setup https://shapeshed.com/vim-netrw/
+" run with :Vex
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 20
+
+
+"ctrlp
+"let g:crtlp_map='<F11>'
+"search for files
+nnoremap <leader>p :CtrlP<CR>
+"search for buffers
+nnoremap <leader>b :CtrlPBuffers:<CR>
+"search for buffers
+" ripgrep
+if executable('rg')
+ " Use rg over grep
+ set grepprg=rg\ --vimgrep\ --no-heading
+ set grepformat=%f:%l:%c:%m,%f:%l:%m
+
+ " Use rg in CtrlP for listing files. Lightning fast and respects .gitignore
+ let g:ctrlp_user_command = 'rg --files %s'
+
+ " rg is fast enough that CtrlP doesn't need to cache
+ let g:ctrlp_use_caching = 0
+else
+ let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+end
+
+
+"clang-format
+let g:clang_format#enable_fallback_style = 0
+"style based on microsoft
+let g:clang_format#style_options = {
+\ "AccessModifierOffset" : "-2",
+\ "AlignAfterOpenBracket" : "Align",
+\ "AlignConsecutiveAssignments" : "false",
+\ "AlignConsecutiveDeclarations" : "false",
+\ "AlignEscapedNewlines" : "Right",
+\ "AlignOperands" : "true",
+\ "AlignTrailingComments" : "true",
+\ "AllowAllParametersOfDeclarationOnNextLine" : "true",
+\ "AllowShortBlocksOnASingleLine" : "false",
+\ "AllowShortCaseLabelsOnASingleLine" : "false",
+\ "AllowShortFunctionsOnASingleLine" : "None",
+\ "AllowShortIfStatementsOnASingleLine" : "false",
+\ "AllowShortLoopsOnASingleLine" : "false",
+\ "AlwaysBreakAfterDefinitionReturnType" : "None",
+\ "AlwaysBreakAfterReturnType" : "None",
+\ "AlwaysBreakBeforeMultilineStrings" : "false",
+\ "AlwaysBreakTemplateDeclarations" : "MultiLine",
+\ "BinPackArguments" : "true",
+\ "BinPackParameters" : "true",
+\ "BraceWrappingAfterClass" : "true",
+\ "BraceWrappingAfterControlStatement" : "true",
+\ "BraceWrappingAfterEnum" :       "true",
+\ "BraceWrappingAfterFunction" :   "true",
+\ "BraceWrappingAfterNamespace" :  "true",
+\ "BraceWrappingAfterObjCDeclaration" : "true",
+\ "BraceWrappingAfterStruct" :     "true",
+\ "BraceWrappingAfterUnion" :      "false",
+\ "BraceWrappingAfterExternBlock" : "true",
+\ "BraceWrappingBeforeCatch" :     "true",
+\ "BraceWrappingBeforeElse" :      "true",
+\ "BraceWrappingIndentBraces" :    "false",
+\ "BraceWrappingSplitEmptyFunction" : "true",
+\ "BraceWrappingSplitEmptyRecord" : "true",
+\ "BraceWrappingSplitEmptyNamespace" : "true",
+\ "BreakBeforeBinaryOperators" : "None",
+\ "BreakBeforeBraces" : "Custom",
+\ "BreakBeforeInheritanceComma" : "false",
+\ "BreakInheritanceList" : "BeforeColon",
+\ "BreakBeforeTernaryOperators" : "true",
+\ "BreakConstructorInitializersBeforeComma" : "true",
+\ "BreakConstructorInitializers" : "BeforeColon",
+\ "BreakAfterJavaFieldAnnotations" : "false",
+\ "BreakStringLiterals" : "true",
+\ "ColumnLimit" : "120",
+\ "CompactNamespaces" : "false",
+\ "ConstructorInitializerAllOnOneLineOrOnePerLine" : "false",
+\ "ConstructorInitializerIndentWidth" : "4",
+\ "ContinuationIndentWidth" : "4",
+\ "Cpp11BracedListStyle" : "true",
+\ "DerivePointerAlignment" : "false",
+\ "DisableFormat" : "false",
+\ "ExperimentalAutoDetectBinPacking" : "false",
+\ "FixNamespaceComments" : "true",
+\ "IncludeBlocks" :   "Preserve",
+\ "IndentCaseLabels" : "false",
+\ "IndentPPDirectives" : "None",
+\ "IndentWidth" : "4",
+\ "IndentWrappedFunctionNames" : "false",
+\ "JavaScriptQuotes" : "Leave",
+\ "JavaScriptWrapImports" : "true",
+\ "KeepEmptyLinesAtTheStartOfBlocks" : "true",
+\ "MaxEmptyLinesToKeep" : "1",
+\ "NamespaceIndentation" : "None",
+\ "ObjCBinPackProtocolList" : "Auto",
+\ "ObjCBlockIndentWidth" : "2",
+\ "ObjCSpaceAfterProperty" : "false",
+\ "ObjCSpaceBeforeProtocolList" : "true",
+\ "PenaltyBreakAssignment" : "2",
+\ "PenaltyBreakBeforeFirstCallParameter" : "19",
+\ "PenaltyBreakComment" : "300",
+\ "PenaltyBreakFirstLessLess" : "120",
+\ "PenaltyBreakString" : "1000",
+\ "PenaltyBreakTemplateDeclaration" : "10",
+\ "PenaltyExcessCharacter" : "1000000",
+\ "PenaltyReturnTypeOnItsOwnLine" : "1000",
+\ "PointerAlignment" : "Right",
+\ "ReflowComments" : "true",
+\ "SortIncludes" : "true",
+\ "SortUsingDeclarations" : "true",
+\ "SpaceAfterCStyleCast" : "false",
+\ "SpaceAfterTemplateKeyword" : "true",
+\ "SpaceBeforeAssignmentOperators" : "true",
+\ "SpaceBeforeCpp11BracedList" : "false",
+\ "SpaceBeforeCtorInitializerColon" : "true",
+\ "SpaceBeforeInheritanceColon" : "true",
+\ "SpaceBeforeParens" : "ControlStatements",
+\ "SpaceBeforeRangeBasedForLoopColon" : "true",
+\ "SpaceInEmptyParentheses" : "false",
+\ "SpacesBeforeTrailingComments" : "1",
+\ "SpacesInAngles" :  "false",
+\ "SpacesInContainerLiterals" : "true",
+\ "SpacesInCStyleCastParentheses" : "false",
+\ "SpacesInParentheses" : "false",
+\ "SpacesInSquareBrackets" : "false",
+\ "TabWidth" :        "4",
+\ "UseTab" :          "Never",
+\ "Standard" : "C++11"}
+
+"run clang-format on save very slow on huge files
+"augroup clang_format
+"    autocmd FileType c,cpp
+"       \ autocmd! clang_format BufWritePre <buffer> :ClangFormat
+"augroup END
+
+" map to <Leader>cf in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+
+" UndoTree
+if has("persistent_undo")
+    let myUndoDir = $HOME . "/.vim_undodir"
+    call mkdir(myUndoDir, 'p')
+    let &undodir = myUndoDir
+    set undofile
+endif
+
+"Ale
+let g:ale_fixers = {
+\    '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['black'],
+\}
+let g:ale_linters = {
+\   'cpp': ['ccls', 'clang-tidy'],
+\   'python': ['flake8'],
+\}
+
+let g:ale_cpp_ccls_init_options = {
+\   'cache': {
+\       'directory': '/tmp/ccls/cache'
+\   }
+\ }
+
+let g:ale_fix_on_save = 1
