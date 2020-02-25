@@ -2,55 +2,6 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " ========================================================
-" Vundle plugin manager
-" ========================================================
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-"
-" Keep Plugin commands between vundle#begin/end.
-
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-"Plug 'ajh17/VimCompletesMe'     " Completion plugins
-Plugin 'natebosch/vim-lsc'      " Language server plugin:
-Plugin 'liuchengxu/vista.vim'
-Plugin 'm-pilia/vim-ccls'
-Plugin 'vim-scripts/DoxygenToolkit.vim'
-Plugin 'tpope/vim-commentary'
-"Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'rhysd/vim-clang-format'
-Plugin 'justinmk/vim-dirvish'
-Plugin 'jreybert/vimagit'
-Plugin 'tpope/vim-fugitive'
-Plugin 'mbbill/undotree'
-Plugin 'junegunn/fzf', { 'do': './install --bin' }
-Plugin 'junegunn/fzf.vim'
-Plugin 'dense-analysis/ale'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"
-
-
-" ========================================================
 " Vim Setup
 " ========================================================
 " Set leader to space
@@ -76,8 +27,8 @@ set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitigno
 
 
 " Folding
-"set foldmethod=marker
-set foldmethod=syntax           " Folding based on syntax
+set foldmethod=marker
+"set foldmethod=syntax           " Folding based on syntax
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -207,6 +158,16 @@ set complete+=kspell
 " Always use vertical diffs
 set diffopt+=vertical
 
+"netrw
+let g:netrw_fastbrowse=0 "fix hanging netrw buffer
+" nerdtree like setup https://shapeshed.com/vim-netrw/
+" run with :Vex
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 20
+
 " =============================================================
 " => GUI related
 " =============================================================
@@ -238,7 +199,7 @@ catch
 endtry
 
 " Clear highlighting and redraw screen on ctrl-l in normal mode
-nnoremap <silent> <C-L> :noh<CR><C-L>
+" nnoremap <silent> <C-L> :noh<CR><C-L>
 
 "remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
@@ -257,12 +218,62 @@ autocmd BufWritePre * %s/\s\+$//e
 
 
 
+" ========================================================
+" Vundle plugin manager
+" ========================================================
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+"
+" Keep Plugin commands between vundle#begin/end.
+
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'ajh17/VimCompletesMe'     " Completion plugins
+Plugin 'natebosch/vim-lsc'      " Language server plugin:
+Plugin 'liuchengxu/vista.vim'
+Plugin 'm-pilia/vim-ccls'
+Plugin 'vim-scripts/DoxygenToolkit.vim'
+Plugin 'tpope/vim-commentary'
+"Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'rhysd/vim-clang-format'
+Plugin 'justinmk/vim-dirvish'
+Plugin 'jreybert/vimagit'
+Plugin 'tpope/vim-fugitive'
+Plugin 'mbbill/undotree'
+Plugin 'junegunn/fzf', { 'do': './install --bin' }
+Plugin 'junegunn/fzf.vim'
+Plugin 'dense-analysis/ale'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+"
+
+
 
 " ========================================================
 " NerdTree
 " ========================================================
 " C-n opens nerdtree
-map <C-n> :NERDTreeToggle<CR>
+"map <C-n> :NERDTreeToggle<CR>
+map <leader>n :NERDTreeToggle<CR>
 
 " The Silver Searcher
 if executable('ag')
@@ -303,6 +314,34 @@ let g:lsc_server_commands = {
 " Apply the defaults with a few overrides:
 "let g:lsc_auto_map = v:true
 let g:lsc_auto_map = {'defaults': v:true, 'ShowHover': 'K'}
+
+" Use all the defaults (recommended):
+"let g:lsc_auto_map = v:true
+
+" Apply the defaults with a few overrides:
+"let g:lsc_auto_map = {'defaults': v:true, 'FindReferences': '<leader>r'}
+
+" Setting a value to a blank string leaves that command unmapped:
+"let g:lsc_auto_map = {'defaults': v:true, 'FindImplementations': ''}
+
+" ... or set only the commands you want mapped without defaults.
+" Complete default mappings are:
+"let g:lsc_auto_map = {
+"    \ 'GoToDefinition': '<C-]>',
+"    \ 'GoToDefinitionSplit': ['<C-W>]', '<C-W><C-]>'],
+"    \ 'FindReferences': 'gr',
+"    \ 'NextReference': '<C-n>',
+"    \ 'PreviousReference': '<C-p>',
+"    \ 'FindImplementations': 'gI',
+"    \ 'FindCodeActions': 'ga',
+"    \ 'Rename': 'gR',
+"    \ 'ShowHover': v:true,
+"    \ 'DocumentSymbol': 'go',
+"    \ 'WorkspaceSymbol': 'gS',
+"    \ 'SignatureHelp': 'gm',
+"    \ 'Completion': 'completefunc',
+"    \}
+"
 set completeopt=menu,menuone,noinsert,noselect
 
 let g:lsc_enable_autocomplete  = v:true
@@ -321,16 +360,6 @@ let g:vista_executive_for = {
   \ 'cpp': 'vim_lsc',
   \ 'python': 'vim_lsc',
   \ }
-
-"newrw
-let g:netrw_fastbrowse=0 "fix hanging netrw buffer
-" nerdtree like setup https://shapeshed.com/vim-netrw/
-" run with :Vex
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 20
 
 
 " ==========================================================
@@ -483,7 +512,7 @@ if has("persistent_undo")
 endif
 
 " ==========================================================
-"Ale
+" Ale
 " ==========================================================
 let g:ale_fixers = {
 \    '*': ['remove_trailing_lines', 'trim_whitespace'],
