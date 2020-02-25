@@ -1,0 +1,81 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'H
+	/home/build/
+	..
+1582625952
+'b
+	/home/build/bin/
+	..
+1582625952
+'h
+	/home/build/
+	..
+1582625952
+'z
+	/home/build/.config/vifm
+	..
+1582625952
+
+# Bookmarks:
+
+# TUI:
+al
+q0
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/build/misc/DotFiles/.config
+	gtk-3.0
+8
+d/home/build/misc/DotFiles/.config/gtk-3.0
+	..
+0
+d/home/build/misc/DotFiles/.config
+	..
+0
+d/home/build/misc/DotFiles
+	Setup.sh
+1
+d/home/build/misc
+	Work
+5
+d
+
+# Right window history (oldest to newest):
+D/home/build/misc/DotFiles/.config
+	..
+0
+D
+
+# Command line history (oldest to newest):
+:help
+:q
+
+# Search history (oldest to newest):
+
+# Prompt history (oldest to newest):
+
+# Local filter history (oldest to newest):
+
+# Registers:
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+
+# State:
+f
+i1
+[.1
+[F
+F
+I1
+].1
+]F
+s0
