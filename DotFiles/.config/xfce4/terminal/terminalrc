@@ -1,5 +1,5 @@
 [Configuration]
-FontName=DejaVu Sans Mono 10
+FontName=ALM Fixed 11
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBordersDefault=TRUE
@@ -17,13 +17,14 @@ MiscTabCloseMiddleClick=TRUE
 MiscTabPosition=GTK_POS_TOP
 MiscHighlightUrls=TRUE
 MiscScrollAlternateScreen=TRUE
-ColorForeground=#1f3566
-ColorBackground=#f1f1f1
-ColorPalette=#000000;#aa0000;#44aa44;#aa5500;#0039aa;#aa22aa;#1a92aa;#aaaaaa;#888888;#ff8787;#4ce64c;#ded82c;#295fcc;#cc58cc;#4ccce6;#ffffff
-ColorCursor=#0f4999
-ColorSelection=#bbbbbb
-ColorSelectionUseDefault=FALSE
-ColorBold=#000000
-ColorBoldUseDefault=FALSE
-TabActivityColor=#0f4999
+MiscBellUrgent=FALSE
+MiscMouseWheelZoom=TRUE
+MiscMiddleClickOpensUri=FALSE
+MiscCopyOnSelect=FALSE
+MiscShowRelaunchDialog=TRUE
+MiscRewrapOnResize=TRUE
+MiscUseShiftArrowsToScroll=FALSE
+MiscSlimTabs=FALSE
+MiscNewTabAdjacent=FALSE
+ColorBackground=#2e2e34343636
 
