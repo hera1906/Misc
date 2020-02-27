@@ -233,6 +233,9 @@ bindsym $mod+Shift+s sticky toggle
 assign [class="Firefox"] $workspace2
 assign [class="Chromium-browser"] $workspace2
 
+# Run compton (introduces opacity and fade effect)
+exec compton -f
+
 # Create initial windows
 exec terminology
 exec terminology
