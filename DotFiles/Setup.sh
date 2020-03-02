@@ -13,3 +13,5 @@ ln -s $DOTDIR/.tmux ~/.tmux
 ln $DOTDIR/.tmux.conf ~/.tmux.conf
 ln -s $DOTDIR/.vim ~/.vim
 ln $DOTDIR/.viminfo ~/.viminfo
+ln -s $DOTDIR/.xmonad ~/.xmonad
+ln $DOTDIR/.Xresources ~/.Xresources
