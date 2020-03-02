@@ -1,0 +1,28 @@
+[MainWindow]
+Height 1335=1279
+State=AAAA/wAAAAD9AAAAAAAAA1EAAATGAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+Width 2560=849
+
+[Recent Files]
+File1[$e]=$HOME/src/dotfiles/.screenshots/dotfiles01.png
+File2[$e]=$HOME/src/dotfiles/.screenshots/dotfiles02.png
+File3[$e]=$HOME/src/dotfiles/.screenshots/dotfiles03.png
+File4[$e]=$HOME/src/dotfiles/.screenshots/dotfiles04.png
+File5[$e]=$HOME/src/dotfiles/.screenshots/dotfiles05.png
+File6[$e]=$HOME/src/dotfiles/.screenshots/dotfiles06.png
+File7[$e]=$HOME/src/dotfiles/.screenshots/dotfiles07.png
+File8[$e]=$HOME/src/dotfiles/.screenshots/dotfiles08.png
+File9[$e]=$HOME/src/dotfiles/.screenshots/dotfiles10.jpg
+Name1[$e]=dotfiles01.png
+Name2[$e]=dotfiles02.png
+Name3[$e]=dotfiles03.png
+Name4[$e]=dotfiles04.png
+Name5[$e]=dotfiles05.png
+Name6[$e]=dotfiles06.png
+Name7[$e]=dotfiles07.png
+Name8[$e]=dotfiles08.png
+Name9[$e]=dotfiles10.jpg
+
+[SideBar]
+SideBarSplitterSizes=200,643

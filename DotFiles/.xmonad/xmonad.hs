@@ -71,7 +71,7 @@ import XMonad.Prompt (defaultXPConfig, XPConfig(..), XPPosition(Top), Direction1
 ---CONFIG
 ------------------------------------------------------------------------
 myFont          = "xft:Mononoki Nerd Font:regular:pixelsize=12"
-myModMask       = mod1Mask  -- Sets modkey: Alt key, mod4Mask: super/windows key
+myModMask       = mod1Mask  -- Sets modkey: mod1Mask: Alt key, mod4Mask: super/windows key
 myTerminal      = "alacritty"      -- Sets default terminal
 myTextEditor    = "vim"     -- Sets default text editor
 myBorderWidth   = 2         -- Sets border width for windows
