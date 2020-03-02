@@ -1,4 +1,4 @@
-DOTDIR=/home/build/misc/DotFiles
+DOTDIR=/home/pi/misc/DotFiles
 ln $DOTDIR/.bash_aliases ~/.bash_aliases
 ln $DOTDIR/.bash_git ~/.bash_git
 ln $DOTDIR/.bash_logout ~/.bash_logout
@@ -15,3 +15,4 @@ ln -s $DOTDIR/.vim ~/.vim
 ln $DOTDIR/.viminfo ~/.viminfo
 ln -s $DOTDIR/.xmonad ~/.xmonad
 ln $DOTDIR/.Xresources ~/.Xresources
+ln -s $DOTDIR/.fonts ~/.fonts

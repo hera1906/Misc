@@ -79,9 +79,9 @@ windowCount     = gets $ Just . show . length . W.integrate' . W.stack . W.works
 
 main = do
     -- Launching three instances of xmobar on their monitors.
-    xmproc0 <- spawnPipe "xmobar -x 0 /home/dt/.config/xmobar/xmobarrc0"
-    xmproc1 <- spawnPipe "xmobar -x 1 /home/dt/.config/xmobar/xmobarrc2"
-    xmproc2 <- spawnPipe "xmobar -x 2 /home/dt/.config/xmobar/xmobarrc1"
+    xmproc0 <- spawnPipe "xmobar -x 0 /home/pi/.config/xmobar/xmobarrc0"
+    xmproc1 <- spawnPipe "xmobar -x 1 /home/pi/.config/xmobar/xmobarrc2"
+    xmproc2 <- spawnPipe "xmobar -x 2 /home/pi/.config/xmobar/xmobarrc1"
     -- the xmonad, ya know...what the WM is named after!
 
     xmonad $ ewmh desktopConfig
@@ -114,10 +114,10 @@ main = do
 myStartupHook = do
           --spawnOnce "emacs --daemon &"
           spawnOnce "nitrogen --restore &"
-          spawnOnce "compton --config /home/dt/.config/compton/compton.conf &"
+          spawnOnce "compton --config /home/pi/.config/compton/compton.conf &"
           setWMName "LG3D"
           --spawnOnce "exec /usr/bin/trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 15 --transparent true --alpha 0 --tint 0x292d3e --height 19 &"
-          --spawnOnce "/home/dt/.xmonad/xmonad.start" -- Sets our wallpaper
+          --spawnOnce "/home/pi/.xmonad/xmonad.start" -- Sets our wallpaper
 
 ------------------------------------------------------------------------
 ---GRID SELECT
@@ -143,7 +143,8 @@ mygridConfig colorizer = (buildDefaultGSConfig myColorizer)
 
 spawnSelected' :: [(String, String)] -> X ()
 spawnSelected' lst = gridselect conf lst >>= flip whenJust spawn
-    where conf = defaultGSConfig
+    where conf = def
+-- old:   where conf = defaultGSConfig
 
 ------------------------------------------------------------------------
 ---KEYBINDINGS
@@ -193,13 +194,13 @@ myKeys =
         , ("M-S-j", windows W.swapDown)              -- Swap the focused window with the next window
         , ("M-S-k", windows W.swapUp)                -- Swap the focused window with the prev window
         , ("M-<Backspace>", promote)                 -- Moves focused window to master, all others maintain order
-        , ("M1-S-<Tab>", rotSlavesDown)              -- Rotate all windows except master and keep focus in place
-        , ("M1-C-<Tab>", rotAllDown)                 -- Rotate all the windows in the current stack
+    ---    , ("M1-S-<Tab>", rotSlavesDown)              -- Rotate all windows except master and keep focus in place
+    ---    , ("M1-C-<Tab>", rotAllDown)                 -- Rotate all the windows in the current stack
         , ("M-S-s", windows copyToAll)
         , ("M-C-s", killAllOtherCopies)
 
-        , ("M-C-M1-<Up>", sendMessage Arrange)
-        , ("M-C-M1-<Down>", sendMessage DeArrange)
+    ---    , ("M-C-M1-<Up>", sendMessage Arrange)
+    ---    , ("M-C-M1-<Down>", sendMessage DeArrange)
         , ("M-<Up>", sendMessage (MoveUp 10))             --  Move focused window to up
         , ("M-<Down>", sendMessage (MoveDown 10))         --  Move focused window to down
         , ("M-<Right>", sendMessage (MoveRight 10))       --  Move focused window to right
@@ -248,29 +249,30 @@ myKeys =
         , ("M-<Return>", spawn myTerminal)
 
     --- Dmenu Scripts (Alt+Ctr+Key)
-        , ("M1-C-<Return>", spawn "dmenu_run -fn 'UbuntuMono Nerd Font:size=10' -nb '#292d3e' -nf '#bbc5ff' -sb '#82AAFF' -sf '#292d3e' -p 'dmenu:'")
-        , ("M1-C-e", spawn "./.dmenu/dmenu-edit-configs.sh")
-        , ("M1-C-h", spawn "./.dmenu/dmenu-hugo.sh")
-        , ("M1-C-m", spawn "./.dmenu/dmenu-sysmon.sh")
-        , ("M1-C-p", spawn "passmenu")
-        , ("M1-C-s", spawn "./.dmenu/dmenu-surfraw.sh")
-        , ("M1-C-/", spawn "./.dmenu/dmenu-scrot.sh")
+        , ("M-d-<Return>", spawn "dmenu_run -fn 'UbuntuMono Nerd Font:size=10' -nb '#292d3e' -nf '#bbc5ff' -sb '#82AAFF' -sf '#292d3e' -p 'dmenu:'")
+    ---    , ("M1-C-<Return>", spawn "dmenu_run -fn 'UbuntuMono Nerd Font:size=10' -nb '#292d3e' -nf '#bbc5ff' -sb '#82AAFF' -sf '#292d3e' -p 'dmenu:'")
+    ---    , ("M1-C-e", spawn "./.dmenu/dmenu-edit-configs.sh")
+    ---    , ("M1-C-h", spawn "./.dmenu/dmenu-hugo.sh")
+    ---    , ("M1-C-m", spawn "./.dmenu/dmenu-sysmon.sh")
+    ---    , ("M1-C-p", spawn "passmenu")
+    ---    , ("M1-C-s", spawn "./.dmenu/dmenu-surfraw.sh")
+    ---    , ("M1-C-/", spawn "./.dmenu/dmenu-scrot.sh")
 
     --- My Applications (Super+Alt+Key)
-        , ("M-M1-a", spawn (myTerminal ++ " -e ncpamixer"))
-        , ("M-M1-b", spawn ("surf www.youtube.com/c/DistroTube/"))
-        , ("M-M1-c", spawn (myTerminal ++ " -e cmus"))
-        , ("M-M1-e", spawn (myTerminal ++ " -e neomutt"))
-        , ("M-M1-f", spawn (myTerminal ++ " -e sh ./.config/vifm/scripts/vifmrun"))
-        , ("M-M1-i", spawn (myTerminal ++ " -e irssi"))
-        , ("M-M1-j", spawn (myTerminal ++ " -e joplin"))
-        , ("M-M1-l", spawn (myTerminal ++ " -e lynx -cfg=~/.lynx/lynx.cfg -lss=~/.lynx/lynx.lss gopher://distro.tube"))
-        , ("M-M1-m", spawn (myTerminal ++ " -e toot curses"))
-        , ("M-M1-n", spawn (myTerminal ++ " -e newsboat"))
-        , ("M-M1-p", spawn (myTerminal ++ " -e pianobar"))
-        , ("M-M1-r", spawn (myTerminal ++ " -e rtv"))
-        , ("M-M1-w", spawn (myTerminal ++ " -e wopr report.xml"))
-        , ("M-M1-y", spawn (myTerminal ++ " -e youtube-viewer"))
+    ---    , ("M-M1-a", spawn (myTerminal ++ " -e ncpamixer"))
+    ---    , ("M-M1-b", spawn ("surf www.youtube.com/c/DistroTube/"))
+    ---    , ("M-M1-c", spawn (myTerminal ++ " -e cmus"))
+    ---    , ("M-M1-e", spawn (myTerminal ++ " -e neomutt"))
+    ---    , ("M-M1-f", spawn (myTerminal ++ " -e sh ./.config/vifm/scripts/vifmrun"))
+    ---    , ("M-M1-i", spawn (myTerminal ++ " -e irssi"))
+    ---    , ("M-M1-j", spawn (myTerminal ++ " -e joplin"))
+    ---    , ("M-M1-l", spawn (myTerminal ++ " -e lynx -cfg=~/.lynx/lynx.cfg -lss=~/.lynx/lynx.lss gopher://distro.tube"))
+    ---    , ("M-M1-m", spawn (myTerminal ++ " -e toot curses"))
+    ---    , ("M-M1-n", spawn (myTerminal ++ " -e newsboat"))
+    ---    , ("M-M1-p", spawn (myTerminal ++ " -e pianobar"))
+    ---    , ("M-M1-r", spawn (myTerminal ++ " -e rtv"))
+    ---    , ("M-M1-w", spawn (myTerminal ++ " -e wopr report.xml"))
+    ---    , ("M-M1-y", spawn (myTerminal ++ " -e youtube-viewer"))
 
 
     -- Multimedia Keys
