@@ -79,9 +79,9 @@ windowCount     = gets $ Just . show . length . W.integrate' . W.stack . W.works
 
 main = do
     -- Launching three instances of xmobar on their monitors.
-    xmproc0 <- spawnPipe "xmobar -x 0 /home/pi/.config/xmobar/xmobarrc0"
-    xmproc1 <- spawnPipe "xmobar -x 1 /home/pi/.config/xmobar/xmobarrc2"
-    xmproc2 <- spawnPipe "xmobar -x 2 /home/pi/.config/xmobar/xmobarrc1"
+    xmproc0 <- spawnPipe "xmobar -x 0 ~/.config/xmobar/xmobarrc0"
+    xmproc1 <- spawnPipe "xmobar -x 1 ~/.config/xmobar/xmobarrc2"
+    xmproc2 <- spawnPipe "xmobar -x 2 ~/.config/xmobar/xmobarrc1"
     -- the xmonad, ya know...what the WM is named after!
 
     xmonad $ ewmh desktopConfig
@@ -114,10 +114,10 @@ main = do
 myStartupHook = do
           --spawnOnce "emacs --daemon &"
           spawnOnce "nitrogen --restore &"
-          spawnOnce "compton --config /home/pi/.config/compton/compton.conf &"
+          spawnOnce "compton --config ~/.config/compton/compton.conf &"
           setWMName "LG3D"
           --spawnOnce "exec /usr/bin/trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 15 --transparent true --alpha 0 --tint 0x292d3e --height 19 &"
-          --spawnOnce "/home/pi/.xmonad/xmonad.start" -- Sets our wallpaper
+          --spawnOnce "~/.xmonad/xmonad.start" -- Sets our wallpaper
 
 ------------------------------------------------------------------------
 ---GRID SELECT
