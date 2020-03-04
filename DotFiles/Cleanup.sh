@@ -6,15 +6,15 @@ rm .bash_git
 rm .bash_logout
 rm .bash_profile
 rm .bashrc
-rm .config
+rm -rf .config
 rm .gdbinit
 rm .gitconfig
 rm .inputrc
 rm .profile
-rm .tmux
+rm -rf .tmux
 rm .tmux.conf
-rm .vim
+rm -rf .vim
 rm .viminfo
-rm .xmonad
+rm -rf .xmonad
 rm .Xresources
-rm .fonts
+rm -rf .fonts

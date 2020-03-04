@@ -15,3 +15,5 @@ alias cdne='cd ~/src/NExT'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias ll="ls -l"
+alias la="ls -a"=

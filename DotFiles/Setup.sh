@@ -1,4 +1,4 @@
-DOTDIR=misc/DotFiles
+DOTDIR=~/misc/DotFiles
 cd ~
 
 ln $DOTDIR/.bash_aliases .
@@ -15,6 +15,6 @@ ln -s $DOTDIR/.tmux .
 ln $DOTDIR/.tmux.conf .
 ln -s $DOTDIR/.vim .
 ln $DOTDIR/.viminfo .
-ln -s $DOTDIR/.xmonad.
+ln -s $DOTDIR/.xmonad .
 ln $DOTDIR/.Xresources .
 ln -s $DOTDIR/.fonts .
