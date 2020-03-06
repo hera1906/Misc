@@ -183,8 +183,8 @@ myKeys =
           , ("Xonotic", "xonotic-glx")
           ])
 
-        , ("M-S-g", goToSelected $ mygridConfig myColorizer)
-        , ("M-S-b", bringSelected $ mygridConfig myColorizer)
+        , ("M-S-g", goToSelected $ mygridConfig myColorizer)  -- Go to selected
+        , ("M-S-b", bringSelected $ mygridConfig myColorizer) -- Bring selected
 
     -- Windows navigation
         , ("M-m", windows W.focusMaster)             -- Move focus to the master window
@@ -196,11 +196,11 @@ myKeys =
         , ("M-<Backspace>", promote)                 -- Moves focused window to master, all others maintain order
     ---    , ("M1-S-<Tab>", rotSlavesDown)              -- Rotate all windows except master and keep focus in place
     ---    , ("M1-C-<Tab>", rotAllDown)                 -- Rotate all the windows in the current stack
-        , ("M-S-s", windows copyToAll)
-        , ("M-C-s", killAllOtherCopies)
+        , ("M-S-s", windows copyToAll)               -- Copy to all
+        , ("M-C-s", killAllOtherCopies)              -- Kill all other copies
 
-    ---    , ("M-C-M1-<Up>", sendMessage Arrange)
-    ---    , ("M-C-M1-<Down>", sendMessage DeArrange)
+    ---    , ("M-C-M1-<Up>", sendMessage Arrange)           -- Arrange
+    ---    , ("M-C-M1-<Down>", sendMessage DeArrange)       -- DeArrange
         , ("M-<Up>", sendMessage (MoveUp 10))             --  Move focused window to up
         , ("M-<Down>", sendMessage (MoveDown 10))         --  Move focused window to down
         , ("M-<Right>", sendMessage (MoveRight 10))       --  Move focused window to right
@@ -219,21 +219,22 @@ myKeys =
         , ("M-S-<Space>", sendMessage ToggleStruts)                          -- Toggles struts
         , ("M-S-n", sendMessage $ Toggle NOBORDERS)                          -- Toggles noborder
         , ("M-S-=", sendMessage (Toggle NBFULL) >> sendMessage ToggleStruts) -- Toggles noborder/full
-        , ("M-S-f", sendMessage (T.Toggle "float"))
-        , ("M-S-x", sendMessage $ Toggle REFLECTX)
-        , ("M-S-y", sendMessage $ Toggle REFLECTY)
-        , ("M-S-m", sendMessage $ Toggle MIRROR)
+        , ("M-S-f", sendMessage (T.Toggle "float"))                          -- Toggles float
+        , ("M-S-x", sendMessage $ Toggle REFLECTX)                           -- Toggles Reflect X
+        , ("M-S-y", sendMessage $ Toggle REFLECTY)                           -- Toggles Reflect Y
+        , ("M-S-m", sendMessage $ Toggle MIRROR)                             -- Toggles Mirror
+
     ---    , ("M-<KP_Multiply>", sendMessage (IncMasterN 1))   -- Increase number of clients in the master pane
     ---    , ("M-<KP_Divide>", sendMessage (IncMasterN (-1)))  -- Decrease number of clients in the master pane
     ---    , ("M-S-<KP_Multiply>", increaseLimit)              -- Increase number of windows that can be shown
     ---    , ("M-S-<KP_Divide>", decreaseLimit)                -- Decrease number of windows that can be shown
 
-        , ("M-C-h", sendMessage Shrink)
-        , ("M-C-l", sendMessage Expand)
-        , ("M-C-j", sendMessage MirrorShrink)
-        , ("M-C-k", sendMessage MirrorExpand)
-        , ("M-S-;", sendMessage zoomReset)
-        , ("M-;", sendMessage ZoomFullToggle)
+        , ("M-C-h", sendMessage Shrink)                        -- Shrink
+        , ("M-C-l", sendMessage Expand)                        -- Expand
+        , ("M-C-j", sendMessage MirrorShrink)                  -- Mirror shrink
+        , ("M-C-k", sendMessage MirrorExpand)                  -- Mirror expand
+        , ("M-S-;", sendMessage zoomReset)                     -- Zoom reset
+        , ("M-;", sendMessage ZoomFullToggle)                  -- Toggle zoom full
 
     -- Workspaces
     ---    , ("M-<KP_Add>", moveTo Next nonNSP)                                -- Go to next workspace
@@ -242,14 +243,14 @@ myKeys =
     ---    , ("M-S-<KP_Subtract>", shiftTo Prev nonNSP >> moveTo Prev nonNSP)  -- Shifts focused window to previous workspace
 
     -- Scratchpads
-        , ("M-C-<Return>", namedScratchpadAction myScratchPads "terminal")
-        , ("M-C-c", namedScratchpadAction myScratchPads "cmus")
+        , ("M-C-<Return>", namedScratchpadAction myScratchPads "terminal")   -- Terminal scratchpad
+        , ("M-C-c", namedScratchpadAction myScratchPads "cmus")              -- Cmus scratchpad
 
     -- Open Terminal
-        , ("M-<Return>", spawn myTerminal)
+        , ("M-<Return>", spawn myTerminal)                                   -- New terminal
 
     --- Dmenu Scripts (Alt+Ctr+Key)
-        , ("M-d", spawn "dmenu_run -fn 'UbuntuMono Nerd Font:size=10' -nb '#292d3e' -nf '#bbc5ff' -sb '#82AAFF' -sf '#292d3e' -p 'dmenu:'")
+        , ("M-d", spawn "dmenu_run -fn 'UbuntuMono Nerd Font:size=10' -nb '#292d3e' -nf '#bbc5ff' -sb '#82AAFF' -sf '#292d3e' -p 'dmenu:'") -- Open dmenu
     ---    , ("M1-C-<Return>", spawn "dmenu_run -fn 'UbuntuMono Nerd Font:size=10' -nb '#292d3e' -nf '#bbc5ff' -sb '#82AAFF' -sf '#292d3e' -p 'dmenu:'")
     ---    , ("M1-C-e", spawn "./.dmenu/dmenu-edit-configs.sh")
     ---    , ("M1-C-h", spawn "./.dmenu/dmenu-hugo.sh")
