@@ -113,7 +113,8 @@ main = do
 ------------------------------------------------------------------------
 myStartupHook = do
           --spawnOnce "emacs --daemon &"
-          spawnOnce "nitrogen --restore &"
+          --spawnOnce "nitrogen --restore &"
+          spawnOnce "nitrogen --random --set-zoom-fill ~/src/wallpapers &"
           spawnOnce "compton --config ~/.config/compton/compton.conf &"
           setWMName "LG3D"
           --spawnOnce "exec /usr/bin/trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 15 --transparent true --alpha 0 --tint 0x292d3e --height 19 &"
