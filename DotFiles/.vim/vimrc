@@ -1,5 +1,5 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
+filetype plugin on
 
 " ========================================================
 " Vim Setup
@@ -249,6 +249,7 @@ Plugin 'mbbill/undotree'
 Plugin 'junegunn/fzf', { 'do': './install --bin' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'dense-analysis/ale'
+Plugin 'vimwiki/vimwiki'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

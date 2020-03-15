@@ -76,3 +76,9 @@ git clone https://github.com/junegunn/fzf.git
 
 # Check syntax in Vim asyncrhonously and fix files, with Language Server Protocol (LSP) support
 git clone https://github.com/dense-analysis/ale.git
+
+# Vim Wiki
+git clone https://github.com/vimwiki/vimwiki.git
+vim +PluginInstall +qall
+
+
