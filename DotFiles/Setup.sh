@@ -18,3 +18,4 @@ ln $DOTDIR/.viminfo .
 ln -s $DOTDIR/.xmonad .
 ln $DOTDIR/.Xresources .
 ln -s $DOTDIR/.fonts .
+ln -s $DOTDIR/vimwiki .

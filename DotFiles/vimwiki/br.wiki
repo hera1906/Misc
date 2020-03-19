@@ -1,0 +1,5 @@
+= br: broot =
+
+https://github.com/Canop/broot
+
+https://www.linuxuprising.com/2020/01/broot-is-interactive-treeview-directory.html

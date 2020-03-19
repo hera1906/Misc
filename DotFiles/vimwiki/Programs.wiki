@@ -1,0 +1,11 @@
+= Useful Programs =
+
+  * [[vim]]
+  * * cmake
+  * git
+  * xmonad
+  * nemiver - Gdb frontend
+  * gwenview - Picture viewer
+  * nigrogen - X11 background previewer and setter
+  * compton - a compositor for X11
+  * [[br]] - Broot: An interactive Treeview Directory Navigation Tool

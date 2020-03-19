@@ -126,3 +126,5 @@ stty -ixon
 if [ -f ~/.bash_git ]; then
     . ~/.bash_git
 fi
+
+source /home/build/.config/broot/launcher/bash/br

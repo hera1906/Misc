@@ -10,3 +10,7 @@ fi
 PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/misc/Scripts:.
 
 export PATH
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+source /home/build/.config/broot/launcher/bash/br

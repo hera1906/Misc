@@ -18,3 +18,4 @@ rm .viminfo
 rm -rf .xmonad
 rm .Xresources
 rm -rf .fonts
+rm -rf vimwiki

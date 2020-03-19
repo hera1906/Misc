@@ -1,0 +1,38 @@
+= Debugging in vim using termdebug =
+
+https://www.dannyadam.com/blog/2019/05/debugging-in-vim/
+
+== Initialization ==
+    :packadd termdebug
+    :Termdebug ~~path~~
+
+    instead of specifying <path> when loading Termdebug, the executable can be
+    loaded at the (gdb) prompt with:
+
+    (gdb) file ~~path~~
+
+
+== Breakpoint  ==
+
+In (gdb) prompt:
+  (gdb) *b* _function_
+  (gdb) *b* _line_
+
+  Navigate to line in editor and type:
+  *:Break*
+
+  Remove breakpoint with
+  *:Clear*
+
+== Start program ==
+
+in (gdb) prompt:
+  (gdb) *run* _[args]_
+
+  In vim:
+  *:Run* _[args]_
+
+== Stepping ==
+
+In (gdb) prompt:
+   (gdb) stepZZ

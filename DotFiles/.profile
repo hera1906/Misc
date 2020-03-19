@@ -22,3 +22,5 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 PATH=".:$PATH"
+
+export PATH="$HOME/.cargo/bin:$PATH"

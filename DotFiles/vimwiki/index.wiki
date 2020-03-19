@@ -1,0 +1,9 @@
+= My knowledge base =
+
+Enter on a topic to enter it. Backspace to return.
+
+  * [[Programs]] - Useful programs.
+  * [[Tasks]] -- things to be done _yesterday_!!
+  * Project Gutenberg -- good books are power.
+  * Scratchpad -- various temporary stuff.
+  * [[VimWiki]] - How to use VimWiki (Press enter on this line to see)
