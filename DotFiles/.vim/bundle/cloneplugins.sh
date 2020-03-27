@@ -81,4 +81,5 @@ git clone https://github.com/dense-analysis/ale.git
 git clone https://github.com/vimwiki/vimwiki.git
 vim +PluginInstall +qall
 
-
+# Vim CMake
+git clone https://github.com/vhdirk/vim-cmake.git

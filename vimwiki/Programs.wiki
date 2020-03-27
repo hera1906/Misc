@@ -2,7 +2,7 @@
 
   * [[vim]]
   * * cmake
-  * git
+  * [[git]]
   * xmonad
   * nemiver - Gdb frontend
   * gwenview - Picture viewer

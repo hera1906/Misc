@@ -250,6 +250,7 @@ Plugin 'junegunn/fzf', { 'do': './install --bin' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'dense-analysis/ale'
 Plugin 'vimwiki/vimwiki'
+Plugin 'vhdirk/vim-cmake'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

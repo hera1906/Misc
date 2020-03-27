@@ -1,0 +1,4 @@
+== List branch ==
+
+git branch [-a] [-v]              # List existing branches
+                                  # -a: Both local and remote branches, -v: Verbose

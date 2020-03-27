@@ -127,4 +127,8 @@ if [ -f ~/.bash_git ]; then
     . ~/.bash_git
 fi
 
+# This should not be here, but apparently .bash_profile nor .profile is executed
+PATH=$PATH:~/bin
+export PATH
+
 source /home/build/.config/broot/launcher/bash/br

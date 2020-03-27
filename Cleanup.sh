@@ -19,3 +19,4 @@ rm -rf .xmonad
 rm .Xresources
 rm -rf .fonts
 rm -rf vimwiki
+rm -rf bin

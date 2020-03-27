@@ -1,0 +1,14 @@
+== Git Concepts ==
+
+* We clone a repository to get a local copy.
+* A branch is a pointed to a commit
+* A branch can be local branch or a remote branch and in order to have a local branch we issue a check-out from the remote branches.
+* Local branch is a branch that you have locally in your repository
+* Remote branch is a branch that exists on the centralized repository
+* Working copy is where we make our changes to a branch
+* When we want changes from our fellow colleagues (remote) we use a pull (it’s a fetch then merge)
+* When we want changes from our fellow colleagues (remote) without incorporating it in our working copy we issue just a fetch.
+
+*HEAD*: Last commit snapshot
+*The Index*: Proposed next commit (e.g. what is staged)
+*Working copy*: Sandbox

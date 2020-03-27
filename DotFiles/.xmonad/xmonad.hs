@@ -74,7 +74,7 @@ myFont          = "xft:Mononoki Nerd Font:regular:pixelsize=12"
 myModMask       = mod1Mask  -- Sets modkey to super/windows key mod1Mask: Alt, mod4Mas:super/windows
 myTerminal      = "sakura"      -- Sets default terminal
 myTextEditor    = "vim"     -- Sets default text editor
-myBorderWidth   = 2         -- Sets border width for windows
+myBorderWidth   = 4         -- Sets border width for windows
 windowCount     = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
 main = do
@@ -105,7 +105,9 @@ main = do
         , workspaces         = myWorkspaces
         , borderWidth        = myBorderWidth
         , normalBorderColor  = "#292d3e"
-        , focusedBorderColor = "#bbc5ff"
+        , focusedBorderColor = "#dd1111"
+        --- , normalBorderColor  = "#292d3e"
+        --- , focusedBorderColor = "#bbc5ff"
         } `additionalKeysP`         myKeys
 
 ------------------------------------------------------------------------

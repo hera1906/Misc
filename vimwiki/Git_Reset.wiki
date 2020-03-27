@@ -1,0 +1,11 @@
+== Reset ==
+
+#1) Move whatever branch HEAD points to (stop if --soft)
+#2) THEN, make the Index look like that (stop here unless --hard)
+#3) THEN, make the Working Directory look like that
+
+git reset -p                            # Interactive reset, ask about each change
+git reset --hard <commit id>            # Revert all changes after this commit
+git reset --hard origin/2245_develop    # Revert the revert
+
+git reset <path>                        # Unstage file

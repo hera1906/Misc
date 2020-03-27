@@ -1,0 +1,13 @@
+== Delete branch ==
+
+git branch -d branchname # Delete merged local branch
+git branch -D branchname # Delete unmerged local branch
+
+To delete it from the remote in old versions of Git use:
+git push --delete origin branchname # Delete branch from remote
+git push origin :branchname         # Delete branch from remote (old syntax)
+
+Once you delete the branch from the remote, you can prune to get rid of remote tracking branches with:
+git remote prune origin # Prune to get rid of remote tracking branches
+
+git branch -dr branchname # Prune indiviual remote tracking branch

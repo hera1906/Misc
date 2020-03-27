@@ -1,0 +1,8 @@
+== Begin using new Repository: ==
+
+cd existing-project
+git init
+git add --all
+git commit -m "Initial Commit"
+git remote add origin ssh://git@stash:7999/~helgeras/misc.git
+git push -u origin master

@@ -19,3 +19,4 @@ cp -r $DOTDIR/.xmonad .
 cp $DOTDIR/.Xresources .
 cp -r $DOTDIR/.fonts .
 cp -r $DOTDIR/vimwiki .
+cp -r $DOTDIR/bin .

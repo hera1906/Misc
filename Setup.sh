@@ -1,4 +1,5 @@
-DOTDIR=~/misc/DotFiles
+MISCDIR=~/misc
+DOTDIR=$MISCDIR/DotFiles
 cd ~
 
 ln $DOTDIR/.bash_aliases .
@@ -18,4 +19,5 @@ ln $DOTDIR/.viminfo .
 ln -s $DOTDIR/.xmonad .
 ln $DOTDIR/.Xresources .
 ln -s $DOTDIR/.fonts .
-ln -s $DOTDIR/vimwiki .
+ln -s $MISCDIR/vimwiki .
+ln -s $MISCDIR/bin .

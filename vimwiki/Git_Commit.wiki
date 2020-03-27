@@ -1,0 +1,4 @@
+== Commit ==
+
+git commit                              # Commits all changes, opens editor for message
+git commit --allow-empty -m "<message>" # Empty commit to e.g. trigger build

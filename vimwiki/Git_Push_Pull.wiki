@@ -1,0 +1,4 @@
+== Push/Pull ==
+
+git push                          # Push changes to remote
+git pull

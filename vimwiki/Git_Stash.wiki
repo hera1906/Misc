@@ -1,0 +1,7 @@
+== Stash management ==
+
+git stash save [<message>]
+git stash list
+git stash show [stash]
+git stash (pop|apply) [stash]
+git stash drop [stash]

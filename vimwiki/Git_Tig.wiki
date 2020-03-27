@@ -1,0 +1,11 @@
+== tig ==
+
+Webpage: http://jonas.nitro.dk/tig/manual.html
+
+tig                     # List of commits for current branch
+tig --all               # Display all branches
+tig <branches>          # Display commits from one or more branches
+tig <branch>..<branch>  # Display difference between two branches
+tig -- <file>           # Display changes for a single file
+tig stash               # Display list of stashes
+tig grep -p <string>    # Grep all files for string

@@ -1,0 +1,5 @@
+#!/bin/sh
+# Run a command inside a docker image
+
+DIMAGE=next-fw-pc:latest
+docker run --rm -v $HOME:$HOME -w $PWD $DIMAGE $*

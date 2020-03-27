@@ -1,0 +1,16 @@
+== Undo some changes in one or more commits: ==
+
+*ONLY DO THIS IN A BRANCH. NEVER in a master*
+
+git reset --mixed <commit>     # Make the given commit the latest commit,
+                               # All changes after that will be unstaged
+
+
+git add <something>            # Stage the changes you want to keep
+git commit                     # Commit these changes
+
+
+git push --force origin <branch> (e.g. feature/SXU_1018....)
+                               # Force push the changes, the commits
+                               # after the reset above will be done
+                               # forever

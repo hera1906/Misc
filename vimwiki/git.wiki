@@ -1,0 +1,40 @@
+= Git =
+
+* [[Git_Concepts]] -- General concepts
+*
+* [[Git_New_Repo]] -- Begin using new Repository
+* [[Git_Existing_Repo]] -- Set existing repository as origin to push to
+* [[Git_Clone_Repo]] -- Clone repository
+* [[Git_Checkout]] -- Checkout/Clone branch
+*
+* [[Git_List_Branches]] -- List branches
+* [[Git_Switch_Branch]] -- Switch branch
+* [[Git_Delete_Branch]] -- Delete a branch
+*
+* [[Git_Status]] -- Status
+*
+* [[Git_Push_Pull]] -- Push and pull
+* [[Git_Stage_Unstage]] -- Staging and unstaging
+* [[Git_Commit]] -- Commit
+* [[Git_Merge]] -- Merging
+*
+* [[Git_Revert]] -- Reverting changes
+* [[Git_Reset]] -- Reset
+* [[Git_Undo]] -- Undo some changes in one or more commits
+*
+* [[Git_Stash]] -- Stash management
+
+* [[Git_Tig]] -- The tig command
+* Git_Gitk -- The gitk command
+
+
+
+
+Step 1: 
+Checkout the target branch and merge in the changes from the source branch. Resolve conflicts.
+git checkout master
+git pull origin SXU-169-reformat-and-comment-webxi-code-2
+Step 2: 
+After the merge conflicts are resolved, stage the changes accordingly, commit the changes and push.
+git commit
+git push origin HEAD
