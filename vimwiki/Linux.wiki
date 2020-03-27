@@ -1,0 +1,28 @@
+= Linux =
+
+== Ubuntu ==
+sudo apt-get install xxxx
+sudo apt-get install eclipse eclipse-cdt g++
+
+
+== Fedora ==
+sudo dnf install xxx
+dnf search xxx
+
+== Mount virtual box drive ==
+sudo mount -t vboxsf Shared /mnt/Shared
+
+== Find ==
+find . -name xx -exec grep yyy '{}' \;
+
+== Shell ==
+for x [in [list]]
+do
+     ...
+done
+
+== System cpu and memory statistics ==
+sar 1 10 -r -u
+
+== Process statistics ==
+pidstat -C BK_SLM -rud -h 10

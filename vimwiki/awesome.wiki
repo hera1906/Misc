@@ -1,0 +1,51 @@
+= awesome =
+
+Notes:
+- tags are what other WM call Desktops.
+- A client is the term for basically an application window.
+
+Window manager control
+- Mod C-r               Restart awesome.
+- Mod Q                 Quit awesome.
+- Mod r                   Run prompt.
+- Mod x                  Run LUA code prompt.
+- Mod Return      Spawn terminal emulator.
+- Mod w                 Open main menu.
+
+Clients
+- Mod R                 Redraw the focused window.
+- Mod m                Maximize client.
+- Mod n                 Minimize client.
+- Mod f                  Set client fullscreen.
+- Mod C                 Kill focused client.
+- Mod t                  Mark a client.
+
+Navigation
+- Mod j                  Focus next client.
+- Mod k                 Focus previous client.
+- Mod u                    Focus first urgent client.
+- Mod Left            View previous tag.
+- Mod Right         View next tag.
+- Mod 1-9              Switch to tag 1-9.
+- Mod C-j              Focus next screen.
+- Mod C-k             Focus previous screen.
+- Mod Esc             Focus previously selected tag set.
+
+Layout modification
+- Mod J                 Switch client with next client.
+- Mod K                Switch client with previous client.
+- Mod o                Send client to next screen.
+- Mod h                Decrease master width factor by 5%.
+- Mod l                 Increase master width factor by 5%.
+- Mod H                Increase number of master windows by 1.
+- Mod L                Decrease number of master windows by 1.
+- Mod C-h            Increase number of cols for non-master windows by 1.
+- Mod C-l             Decrease number of cols for non-master windows by 1.
+- Mod Space       Switch to next layout.
+- Mod S-Space    Switch to previous layout.
+- Mod C-Space    Toggle client floating status.
+- Mod C-Return   Swap focused client with master.
+- Mod C-1-9         Toggle tag view.
+- Mod S-1-9         Tag client with tag.
+- Mod S-C-1-9     Toggle tag on client.
+- Mod S-F1-9      Tag marked clients with tag.

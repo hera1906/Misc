@@ -1,0 +1,22 @@
+== cmake ==
+Options
+
+     -DCMAKE_BUILD_TYPE=Debug/Release
+     -DCMAKE_INSTALL_PREFIX=/a/path
+     -DBUILD_SHARED_LIBS=ON (build shared libraries)
+     -DCMAKE_C_COMPILER=icc (set C Compiler)
+     -DCMAKE_CXX_COMPILER=icpc (set C++ compiler)
+     -DCMAKE_PREFIX_PATH=/a/path (dependencies search path)
+
+See http://www.cmake.org/Wiki/CMake_Useful_Variables
+
+Process
+     mkdir build
+     cd build
+     cmake -DCMAKE_INSTALL_PREFIX=/usr/local ..
+     ccmake (interactive interface)
+
+     make
+     make -j2 (build on 2 processors)
+     make test or > ctest
+     make install

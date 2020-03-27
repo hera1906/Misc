@@ -2,3 +2,125 @@
 
     * [[gdb]] - How to debug using gdb in vim
     *
+
+== Buffers: ==
+vi -o file1 ...
+
+C-w s  (:split) Split horizontally
+C-w v (:vsplit) Split vertically
+C-w n (:new) Create new window
+C-w q (:q[uit]) Quit current window
+:hid[e] Hide current window
+C-w o (:onl[y]) Hide all other windows
+
+C-w j Move cursor to Nth window below this
+C-w k Move cursor to Nth window above this
+C-w h Move cursor to Nth window left of this
+C-w l Move cursor to Nth window right of this
+C-w w Go to window below/right of this. With Count: Go to N'th window
+C-w t Move cursor to top-left window
+C-w b Move cursor to bottom-right window
+C-w p Go to previous window
+C-w P Go to preview window
+
+C-w r Rotate windows downwards/rightwards.
+C-w R Rotate windows upwards/leftwards.
+C-w x Exchange current window with next one. With count: Exchange current window with Nth one.
+C-w K Move current window to very top
+C-w J Move the current window to the very bottom
+C-w H Move the current window to the far left
+C-w L Move the current window to the far right
+C-w T Move the current window to a new tab page
+
+C-w = Resize windows to be equal size
+C-w - Decrease current window height by N
+C-w + Increase current window height by N
+C-w C-_ Set current window height to N
+C-w < Decrease current window width by N
+C-w > Increase current window width by N
+C-w | Set current window width to N
+
+C-w ] Split current window, jump to tag
+C-w g ] Split current window, perform ":tselect"
+C-w g C-] Split current window, perform ":tjump"
+C-w f Split current window, edit file name under cursor
+C-w F Split current window, edit file name under cursor and jump to line number following file name
+C-w gf Open new tab page and edit file name under cursor
+
+C-W z Close any preview window
+C-W }  Use identifier under cursor as tag execute ":ptag"
+C-W g } Use identifier under cursor as tag and execute ":ptjump"
+
+== Folding ==
+set foldmethod=manual indent marker
+{{{     :  Fold level++
+}}}     : Fold level--
+{{{77 : Fold level is now77
+}}}77 : Fold level is now 76
+
+
+zf{motion} or {visual}zf : Create fold marker
+zF :    Create fold for [count] lines
+zd:     Delete one fold at the cursor
+zD:     Delete folds recursively at the cursor
+zE:     Eliminate all folds in the window.
+zo:     Open one fold under the cursor
+zO:    Open all folds under the cursor recursively
+zc:     Close one fold under the cursor.
+zC:     Close all folds recursively under the cursor.
+za:     Toggle [count] folds
+zA:    Toggle folds recursively
+zv:     Open enough folds to make line visible
+zx:     Update folds
+zX:    Update: folds ?
+zm:   Fold more (Subtract count from fold level)
+zM:    Close all folds (fold level 0)
+zr:     Fold less (Add count to fold level)
+zR:    Open all folds
+zn:     Fold none (reset foldenable)
+zN:    Fold normal (reset foldenable)
+zi:      Invert foldenable
+[z:     Move to start of current fold
+]z:     Move to end of current open fold
+zj:      Move down to start of next fold
+zk:     Move up to start of previous fold
+
+== Silver seacher:  ==
+<leader>p     :Files
+<leader>l     :Lines
+<leader>b     :Buffers
+
+== clang-format: ==
+<leader>cf     ClangFormat
+
+== LSC: ==
+K              ShowHover
+gR            ClientRename
+gm           SignatureHelp
+gS            WorkspaceSymbol
+go            DocumentSymbol
+ga            FindCodeActions
+gr            FindReferences
+C-P          PreviousReference
+C-N         NextReference
+C-]          GotoDefinition
+C-W ]     GotoDefinitionSplit
+C-W C-] GotoDefinitionSplit
+
+== magit: ==
+<space>M
+
+<space><space>  C-^
+
+-         dirvish_up
+;         :Buffers
+gx     NetrwBrowseX
+gcu   Commentary Commentary
+gcc   CommentaryLine
+gc    Commentary
+
+== Ale: ==
+:ALEGoToDefinition
+:ALEFindReferences
+:ALEHover
+:ALESymbolSearch

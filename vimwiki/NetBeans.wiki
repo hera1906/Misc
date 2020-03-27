@@ -1,0 +1,14 @@
+= NetBeans =
+
+- Build                     F11
+- Clean and Build           Shift-F11
+
+
+Debugger:
+- Debug Project             Ctrl-F5
+- Finish Debugger           Shift-F5
+- Continue                  F4
+- Step Over                 F8
+- Step Into                 F7
+- Step Out                  Ctrl-F7
+- Run to Cursor             F4

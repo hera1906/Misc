@@ -1,0 +1,88 @@
+= TMux =
+
+Cheat sheet: https://gist.github.com/MohamedAlaa/2961058
+https://gist.github.com/andreyvit/2921703
+
+https://robots.thoughtbot.com/a-tmux-crash-course
+
+tmux new -s session:name      : Create new tmux session
+tmux attach -t session_name  : Attach to existing session
+tmux switch -t session_name  : Switch to existing session
+tmux list-sessions                    : List sessions
+tmux list-keys                           : List all key bindings
+
+Prefix: C-a
+a 0-9 (select-window :0-9): Move to window
+
+{ or } (swap-pane -[ULDR]): swap pane with pane
+
+list-keys
+list-commands
+info
+source-file ~/.tmux.conf
+
+Windows (tabs)
+
+c  create window
+w  list windows
+n  next window
+p  previous window
+f  find window
+,  name window
+&  kill window
+
+Panes (splits)
+
+%  vertical split
+"  horizontal split
+
+o  swap panes
+q  show pane numbers
+x  kill pane
++  break pane into window (e.g. to select text by mouse to copy)
+-  restore pane from window
+?  space - toggle between layouts
+q (Show pane numbers, type the key to goto that pane)
+{ (Move the current pane left)
+} (Move the current pane right)
+z toggle pane zoom
+
+Resizing Panes
+
+You can also resize panes if you dont like the layout defaults. I personally rarely need to do this, though its handy to know how. Here is the basic syntax to resize panes:
+
+PREFIX : resize-pane -D (Resizes the current pane down)
+PREFIX : resize-pane -U (Resizes the current pane upward)
+PREFIX : resize-pane -L (Resizes the current pane left)
+PREFIX : resize-pane -R (Resizes the current pane right)
+PREFIX : resize-pane -D 20 (Resizes the current pane down by 20 cells)
+PREFIX : resize-pane -U 20 (Resizes the current pane upward by 20 cells)
+PREFIX : resize-pane -L 20 (Resizes the current pane left by 20 cells)
+PREFIX : resize-pane -R 20 (Resizes the current pane right by 20 cells)
+PREFIX : resize-pane -t 2 20 (Resizes the pane 2 down by 20 cells)
+PREFIX : resize-pane -t 2 -L 20 (Resizes the pane 2 left by 20 cells)
+
+Copy mode:
+[ Copy mode (move around with hjkl etc. Finish with Enter)
+
+Misc
+d  detach
+t  big clock
+?  list shortcuts
+:  prompt
+
+Tmux Plugin Manager (tpm):
+I     Install new plugin from github, refresh tmux environment
+U     Update plugins
+alt-U Remove/Uninstall plugins not on the plugin list
+
+
+tmux-resurrect plugin:
+^S save setup
+^R load setup
+
+
+
+ ^
+
+

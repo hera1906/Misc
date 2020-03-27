@@ -5,11 +5,8 @@
 * [[Git_New_Repo]] -- Begin using new Repository
 * [[Git_Existing_Repo]] -- Set existing repository as origin to push to
 * [[Git_Clone_Repo]] -- Clone repository
-* [[Git_Checkout]] -- Checkout/Clone branch
 *
-* [[Git_List_Branches]] -- List branches
-* [[Git_Switch_Branch]] -- Switch branch
-* [[Git_Delete_Branch]] -- Delete a branch
+* [[Git_Branch]] -- Handling branches
 *
 * [[Git_Status]] -- Status
 *

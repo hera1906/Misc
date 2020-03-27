@@ -1,0 +1,83 @@
+= xmonad =
+
+== Xmonad ==
+  M-C-r                 -- Recompiles xmonad
+  M-S-r                 -- Restarts xmonad
+  M-S-q                 -- Quits xmonad
+
+== Windows ==
+  M-S-c                 -- Kill the currently focused client
+  M-S-a                 -- Kill all the windows on current workspace
+
+== Floating windows ==
+  M-<Delete>            -- Push floating window back to tile.
+  M-S-<Delete>          -- Push ALL floating windows back to tile.
+
+  M-S-g                 -- Go to selected
+  M-S-b                 -- Bring selected
+
+== Windows navigation ==
+  M-m                   -- Move focus to the master window
+  M-j                   -- Move focus to the next window
+  M-k                   -- Move focus to the prev window
+  M-S-m                 -- Swap the focused window and the master window
+  M-S-j                 -- Swap the focused window with the next window
+  M-S-k                 -- Swap the focused window with the prev window
+  M-<Backspace>         -- Moves focused window to master
+  -- M1-S-<Tab>         -- Rotate all windows except master, keep focus
+  -- M1-C-<Tab>         -- Rotate all the windows in the current stack
+  M-S-s                 -- Copy to all
+  M-C-s                 -- Kill all other copies
+
+  -- M-C-M1-<Up>        -- Arrange
+  -- M-C-M1-<Down>      -- DeArrange
+  M-<Up>                -- Move focused window to up
+  M-<Down>              -- Move focused window to down
+  M-<Right>             -- Move focused window to right
+  M-<Left>              -- Move focused window to left
+  M-S-<Up>              -- Increase size of focused window up
+  M-S-<Down>            -- Increase size of focused window down
+  M-S-<Right>           -- Increase size of focused window right
+  M-S-<Left>            -- Increase size of focused window left
+  M-C-<Up>              -- Decrease size of focused window up
+  M-C-<Down>            -- Decrease size of focused window down
+  M-C-<Right>           -- Decrease size of focused window right
+  M-C-<Left>            -- Decrease size of focused window left
+
+== Layouts ==
+  M-<Space>             -- Switch to next layout
+  M-S-<Space>           -- Toggles struts
+  M-S-n                 -- Toggles noborder
+  M-S-=                 -- Toggles noborder/full
+  M-S-f                 -- Toggles float
+  M-S-x                 -- Toggles Reflect X
+  M-S-y                 -- Toggles Reflect Y
+  M-S-m                 -- Toggles Mirror
+
+  -- M-<KP_Multiply>    -- Increase number of clients in the master pane
+  -- M-<KP_Divide>      -- Decrease number of clients in the master pane
+  -- M-S-<KP_Multiply>  -- Increase number of windows that can be shown
+  -- M-S-<KP_Divide>    -- Decrease number of windows that can be shown
+
+  M-C-h                 -- Shrink
+  M-C-l                 -- Expand
+  M-C-j                 -- Mirror shrink
+  M-C-k                 -- Mirror expand
+  M-S-;                 -- Zoom reset
+  M-;                   -- Toggle zoom full
+
+== Workspaces ==
+  -- M-<KP_Add>         -- Go to next workspace
+  -- M-<KP_Subtract>    -- Go to previous workspace
+  -- M-S-<KP_Add>       -- Shifts focused window to next workspace
+  -- M-S-<KP_Subtract>  -- Shifts focused window to previous workspace
+
+== Scratchpads ==
+  M-C-<Return>          -- Terminal scratchpad
+  M-C-c                 -- Cmus scratchpad
+
+== Open Terminal ==
+  M-<Return>            -- New terminal
+
+== Dmenu ==
+  M-d                   -- Open dmenu

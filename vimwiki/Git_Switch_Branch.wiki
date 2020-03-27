@@ -1,4 +1,0 @@
-== Switch branch ==
-
-git checkout <branch>                # Switch to branch (update index and work tree, set HEAD)
-                                     # local changes are kept so they can be committed

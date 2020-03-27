@@ -1,0 +1,22 @@
+= i3 =
+
+Alt Return             New terminal
+Alt  Shift q           Kill focused window
+Alt d                  Start dmenu
+Alt h/j/k/l            Focus left/down/up/right
+Alt  Shift  h/j/k/l    Move window left/down/up/right
+Alt b                  Split horizontally mode
+Alt v                  Split Vertically mode
+Alt f                  Toggle full screen mode
+Alt s                  Layout stacking
+Alt w                  Layout: Tabbed
+Alt e                  Layout: Toggle split
+Alt Shift Space        Toggle tiling/floating
+Alt Space              Change focus between tiling/floating windows
+Alt a                  Focus Parent
+Alt 1-0                Switch to workspace 1 - 10
+Alt Shift 1-0          Move focused container to workspace 1-10
+Alt Shift c            Reload configuration file
+Alt Shift r            Restart i3
+Alt Shift e            Exit i3 and Log out
+Alt r                  Resize: h/l resize width, j/k resize height

@@ -1,11 +1,25 @@
 = Useful Programs =
 
-  * [[vim]]
-  * * cmake
-  * [[git]]
-  * xmonad
-  * nemiver - Gdb frontend
-  * gwenview - Picture viewer
-  * nigrogen - X11 background previewer and setter
-  * compton - a compositor for X11
-  * [[br]] - Broot: An interactive Treeview Directory Navigation Tool
+  * [[Linux]]      - Linux commands
+  * [[vim]]        - vim
+  * [[cmake]]      - cmake
+  * [[git]]        - Git
+  * [[br]]         - Broot: An interactive Treeview Directory Navigation Tool
+  *
+  * nginx      - NGinx webserver
+  *
+  * nemiver    - Gdb frontend
+  * gwenview   - Picture viewer
+  * nigrogen   - X11 background previewer and setter
+  * compton    - a compositor for X11
+
+  * [[NetBeans]]   - NetBeans development environment
+
+ == Window managers ==
+  * [[xmonad]]      - The xmonad window manager
+  * [[i3]]          - The i3 window manager
+  * [[awesome]]     - The awesome window manager
+  * [[TMux]]        - tmux key bindings
+
+
+  * [[CSharp]] -- C#
