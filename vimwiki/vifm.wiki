@@ -1,0 +1,5 @@
+= vifm =
+
+Home page: https://vifm.info
+
+Cheat Sheet: https://vifm.info/cheatsheets.shtml

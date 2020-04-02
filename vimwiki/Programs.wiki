@@ -2,6 +2,7 @@
 
   * [[Linux]]      - Linux commands
   * [[vim]]        - vim
+  * [[vifm]]       - vi file manager
   * [[cmake]]      - cmake
   * [[git]]        - Git
   * [[br]]         - Broot: An interactive Treeview Directory Navigation Tool

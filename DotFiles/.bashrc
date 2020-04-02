@@ -123,12 +123,17 @@ fi
 stty -ixon
 
 # Use git prompt
-if [ -f ~/.bash_git ]; then
-    . ~/.bash_git
+#if [ -f ~/.bash_git ]; then
+#    . ~/.bash_git
+#fi
+if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+    GIT_PROMPT_ONLY_IN_REPO=1
+    GIT_PROMPT_END="\n>"
+    GIT_PROMPT_THEME=Minimal_Chevron
+    source $HOME/.bash-git-prompt/gitprompt.sh
 fi
 
 # This should not be here, but apparently .bash_profile nor .profile is executed
 PATH=$PATH:~/bin
 export PATH
-
 source /home/build/.config/broot/launcher/bash/br

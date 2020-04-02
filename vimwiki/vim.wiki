@@ -1,7 +1,7 @@
 = vim =
 
     * [[gdb]] - How to debug using gdb in vim
-    *
+    * [[gutentags]] - tags support
 
 == Buffers: ==
 vi -o file1 ...
