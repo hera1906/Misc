@@ -128,8 +128,11 @@ stty -ixon
 #fi
 if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
-    GIT_PROMPT_END="\n>"
-    GIT_PROMPT_THEME=Minimal_Chevron
+    GIT_PROMPT_END="]\n>"
+    #GIT_PROMPT_THEME=Minimal_Chevron
+    #GIT_PROMPT_THEME=Chmike
+    #GIT_PROMPT_THEME=Crunch
+    GIT_PROMPT_THEME=Solarized
     source $HOME/.bash-git-prompt/gitprompt.sh
 fi
 

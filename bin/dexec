@@ -1,5 +1,5 @@
 #!/bin/sh
 # Run a command inside a docker image
 
-DIMAGE=next-fw-pc:latest
-docker run --rm -v $HOME:$HOME -w $PWD $DIMAGE $*
+DIMAGE=next-pc-user:latest
+docker run --rm -p 4840:4840 -v $HOME:$HOME -w $PWD $DIMAGE $*

@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 DOTDIR=misc/DotFiles
 cd ~
 
@@ -20,3 +21,4 @@ rm .Xresources
 rm -rf .fonts
 rm -rf vimwiki
 rm -rf bin
+rm -rf .spectrwm.conf

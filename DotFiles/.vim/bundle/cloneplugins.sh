@@ -83,3 +83,8 @@ vim +PluginInstall +qall
 
 # Vim CMake
 git clone https://github.com/vhdirk/vim-cmake.git
+
+# Gutentags
+git clone https://github.com/ludovicchabant/vim-gutentags.git
+# Gutentags_Plus (requires vim-gutentags.git)
+git clone https://github.com/skywind3000/gutentags_plus.git

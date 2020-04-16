@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 MISCDIR=~/misc
 DOTDIR=$MISCDIR/DotFiles
 cd ~
@@ -21,3 +22,4 @@ ln $DOTDIR/.Xresources .
 ln -s $DOTDIR/.fonts .
 ln -s $MISCDIR/vimwiki .
 ln -s $MISCDIR/bin .
+ln -s $DOTDIR/.spectrwm.conf .

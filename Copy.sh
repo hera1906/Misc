@@ -1,3 +1,4 @@
+#!/usr/bin/bash
 DOTDIR=~/misc/DotFiles
 cd ~
 
@@ -20,3 +21,4 @@ cp $DOTDIR/.Xresources .
 cp -r $DOTDIR/.fonts .
 cp -r $DOTDIR/vimwiki .
 cp -r $DOTDIR/bin .
+cp $DOTDIR/.spectrwm.conf .
