@@ -11,7 +11,7 @@ Config { font    = "xft:Mononoki Nerd Font:pixelsize=12:antialias=true:hinting=t
        , hideOnStart = False
        , allDesktops = True
        , persistent = True
-       , iconRoot = "/home/dt/.xmonad/xpm/"  -- default: "."
+       , iconRoot = "~/.xmonad/xpm/"  -- default: "."
        , commands = [ Run Date "%a, %b %d %Y, %H:%M:%S" "date" 10
                     , Run Network "enp6s0" ["-t", "<icon=net_up_20.xpm/>up <rxbar> <icon=net_down_20.xpm/>dn <txbar>"] 10
                     , Run Cpu ["-t", "<icon=cpu_20.xpm/> cpu <bar> (<total>%)","-H","50","--high","red"] 10

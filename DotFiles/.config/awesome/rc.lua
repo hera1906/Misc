@@ -49,7 +49,7 @@ local my_table      = awful.util.table or gears.table -- 4.{0,1} compatibility
 if awesome.startup_errors then
     naughty.notify({ preset = naughty.config.presets.critical,
                      title = "Oops, there were errors during startup!",
-                     text = awesome.startup_errors })((
+                     text = awesome.startup_errors })
 end
 
 -- Handle runtime errors after startup
@@ -106,7 +106,7 @@ local modkey1      = "Control"
 local browser           = "firefox"
 local editor            = os.getenv("EDITOR") or "vim"
 local editorgui         = "geany"
-local filemanager       = "pcmanfm"
+local filemanager       = "thunar"
 local mailclient        = "geary"
 local mediaplayer       = "vlc"
 local scrlocker         = "slimlock"
@@ -118,7 +118,7 @@ awful.util.terminal = terminal
 --awful.util.tagnames = {  " ", " ", " ", " ", " ", " ", " ", " ", " ", " "  }
 --awful.util.tagnames = { "⠐", "⠡", "⠲", "⠵", "⠻", "⠿" }
 --awful.util.tagnames = { "⌘", "♐", "⌥", "ℵ" }
-awful.util.tagnames = { " DEV ", " WWW ", " SYS ", " DOC ", " VBOX ", " CHAT ", " MEDIA ", " GFX " }
+awful.util.tagnames = { " DEV ", " WWW ", " SYS ", " DOC ", " VBOX ", " CHAT ", " MUS ", " VID ", " GFX " }
 -- Use this : https://fontawesome.com/cheatsheet
 --awful.util.tagnames = { "", "", "", "", "" }
 awful.layout.suit.tile.left.mirror = true
@@ -207,7 +207,7 @@ beautiful.init(string.format(gears.filesystem.get_configuration_dir() .. "/theme
 local myawesomemenu = {
     { "hotkeys", function() return false, hotkeys_popup.show_help end },
     { "manual", terminal .. " -e 'man awesome'" },
-    { "edit config", "st vim /home/dt/.config/awesome/rc.lua" },
+    { "edit config", terminal.." vim /home/dt/.config/awesome/rc.lua" },
     { "arandr", "arandr" },
     { "restart", awesome.restart },
 }
@@ -267,7 +267,7 @@ globalkeys = my_table.join(
 
     -- {{{ Personal keybindings
     -- dmenu
-    awful.key({ altkey, "Control" }, "Return",
+    awful.key({ modkey, "Shift" }, "Return",
     function ()
         awful.spawn(string.format("dmenu_run -i  -nb '#292d3e' -nf '#bbc5ff' -sb '#82AAFF' -sf '#292d3e' -fn 'Mononoki Nerd Font:bold:pixelsize=14'",
         beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
@@ -275,7 +275,7 @@ globalkeys = my_table.join(
     {description = "show dmenu", group = "hotkeys"}),
 
     -- My dmenu scripts (Alt+Ctrl+Key)
-    awful.key({ altkey, "Control"  }, "e", function () awful.util.spawn( "./.dmenu/dmenu-edit-configs.sh" ) end,
+    awful.key({ altkey, "Control" }, "e", function () awful.util.spawn( "./.dmenu/dmenu-edit-configs.sh" ) end,
         {description = "edit config files" , group = "dmenu scripts" }),
     awful.key({ altkey, "Control" }, "m", function () awful.util.spawn( "./.dmenu/dmenu-sysmon.sh" ) end,
         {description = "system monitoring apps" , group = "dmenu scripts" }),
@@ -287,33 +287,33 @@ globalkeys = my_table.join(
         {description = "trading programs" , group = "dmenu scripts" }),
         
     -- My applications (Super+Alt+Key)
-    awful.key({ modkey, altkey  }, "a", function () awful.util.spawn( "st -e ncpamixer" ) end,
+    awful.key({ modkey, altkey }, "a", function () awful.util.spawn( terminal.." -e ncpamixer" ) end,
         {description = "ncpamixer" , group = "terminal apps" }),
     awful.key({ modkey, altkey }, "b", function () awful.util.spawn( "surf www.youtube.com/c/DistroTube" ) end,
         {description = "surf web browser" , group = "gui apps" }),
-    awful.key({ modkey, altkey  }, "c", function () awful.util.spawn( "st -e cmus" ) end,
+    awful.key({ modkey, altkey  }, "c", function () awful.util.spawn( terminal.." -e cmus" ) end,
         {description = "cmus" , group = "terminal apps" }),
-    awful.key({ modkey, altkey }, "e", function () awful.util.spawn( "st -e neomutt" ) end,
+    awful.key({ modkey, altkey }, "e", function () awful.util.spawn( terminal.." -e neomutt" ) end,
         {description = "neomutt email" , group = "terminal apps" }),
-    awful.key({ modkey, altkey  }, "f", function () awful.util.spawn( "st -e sh ./.config/vifm/scripts/vifmrun" ) end,
+    awful.key({ modkey, altkey  }, "f", function () awful.util.spawn( terminal.." -e sh ./.config/vifm/scripts/vifmrun" ) end,
         {description = "vifm" , group = "terminal apps" }),
-    awful.key({ modkey, altkey  }, "i", function () awful.util.spawn( "st -e irssi" ) end,
+    awful.key({ modkey, altkey  }, "i", function () awful.util.spawn( terminal.." -e irssi" ) end,
         {description = "irssi" , group = "terminal apps" }),
-    awful.key({ modkey, altkey  }, "j", function () awful.util.spawn( "st -e joplin" ) end,
+    awful.key({ modkey, altkey  }, "j", function () awful.util.spawn( terminal.." -e joplin" ) end,
         {description = "joplin" , group = "terminal apps" }),
-    awful.key({ modkey, altkey }, "l", function () awful.util.spawn( "st -e lynx --cfg=~/.lynx/lynx.cfg --lss=~/.lynx/lynx.lss -vikeys gopher://distro.tube" ) end,
+    awful.key({ modkey, altkey }, "l", function () awful.util.spawn( terminal.." -e lynx --cfg=~/.lynx/lynx.cfg --lss=~/.lynx/lynx.lss -vikeys gopher://distro.tube" ) end,
         {description = "lynx cli browser" , group = "terminal apps" }),
-    awful.key({ modkey, altkey }, "m", function () awful.util.spawn( "st -e toot curses" ) end,
+    awful.key({ modkey, altkey }, "m", function () awful.util.spawn( terminal.." -e toot curses" ) end,
         {description = "toot curses" , group = "terminal apps" }),
-    awful.key({ modkey, altkey }, "n", function () awful.util.spawn( "st -e newsboat" ) end,
+    awful.key({ modkey, altkey }, "n", function () awful.util.spawn( terminal.." -e newsboat" ) end,
         {description = "newsboat" , group = "terminal apps" }),
-    awful.key({ modkey, altkey  }, "p", function () awful.util.spawn( "st -e pianobar" ) end,
+    awful.key({ modkey, altkey  }, "p", function () awful.util.spawn( terminal.." -e pianobar" ) end,
         {description = "pianobar" , group = "terminal apps" }),
-    awful.key({ modkey, altkey }, "r", function () awful.util.spawn( "st -e rtv" ) end,
+    awful.key({ modkey, altkey }, "r", function () awful.util.spawn( terminal.." -e rtv" ) end,
         {description = "rtv" , group = "terminal apps" }),
-    awful.key({ modkey, altkey  }, "w", function () awful.util.spawn( "st -e wopr report.xml" ) end,
+    awful.key({ modkey, altkey  }, "w", function () awful.util.spawn( terminal.." -e wopr report.xml" ) end,
         {description = "wopr report.xml" , group = "terminal apps" }),
-    awful.key({ modkey, altkey  }, "y", function () awful.util.spawn( "st -e youtube-viewer" ) end,
+    awful.key({ modkey, altkey  }, "y", function () awful.util.spawn( terminal.." -e youtube-viewer" ) end,
         {description = "youtube-viewer" , group = "terminal apps" }),
 
     -- screenshots
@@ -436,9 +436,9 @@ globalkeys = my_table.join(
               {description = "swap with next client by index", group = "client"}),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
+    awful.key({ modkey }, ".", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
+    awful.key({ modkey }, ",", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),

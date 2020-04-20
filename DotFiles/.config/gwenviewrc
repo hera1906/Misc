@@ -1,30 +1,10 @@
 [MainWindow]
+Height 1165=1145
 Height 1335=642
-State=AAAA/wAAAAD9AAAAAAAABT0AAAJJAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+State=AAAA/wAAAAD9AAAAAAAAA+kAAARAAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
 ToolBarsMovable=Disabled
+Width 2043=1001
 Width 2560=1341
-
-[Recent Files]
-File1[$e]=$HOME/src/wallpapers/0050.jpg
-File10[$e]=$HOME/src/wallpapers/0059.jpg
-File2[$e]=$HOME/src/wallpapers/0051.jpg
-File3[$e]=$HOME/src/wallpapers/0052.jpg
-File4[$e]=$HOME/src/wallpapers/0053.jpg
-File5[$e]=$HOME/src/wallpapers/0054.jpg
-File6[$e]=$HOME/src/wallpapers/0055.jpg
-File7[$e]=$HOME/src/wallpapers/0056.jpg
-File8[$e]=$HOME/src/wallpapers/0057.jpg
-File9[$e]=$HOME/src/wallpapers/0058.jpg
-Name1[$e]=0050.jpg
-Name10[$e]=0059.jpg
-Name2[$e]=0051.jpg
-Name3[$e]=0052.jpg
-Name4[$e]=0053.jpg
-Name5[$e]=0054.jpg
-Name6[$e]=0055.jpg
-Name7[$e]=0056.jpg
-Name8[$e]=0057.jpg
-Name9[$e]=0058.jpg
 
 [SideBar]
 SideBarSplitterSizes=200,1058
