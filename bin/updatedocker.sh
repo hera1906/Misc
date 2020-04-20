@@ -5,4 +5,3 @@ SCRIPTFILE=dcnv.sh
 sed -e '/FROM/d;/LABEL/d;s/ARG/export/;s/RUN//' Dockerfile > $SCRIPTFILE
 ls -l $SCRIPTFILE
 echo Run $SCRIPTFILE to update the system.
-. ./dcnv.sh
