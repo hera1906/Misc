@@ -6,10 +6,12 @@
   * [[cmake]]      - cmake
   * [[git]]        - Git
   * [[br]]         - Broot: An interactive Treeview Directory Navigation Tool
+  * [[gdb]]        - GNU Debugger
   *
   * nginx      - NGinx webserver
   *
   * nemiver    - Gdb frontend
+  * retext     - Markdown editor/viewer
   * gwenview   - Picture viewer
   * nigrogen   - X11 background previewer and setter
   * compton    - a compositor for X11

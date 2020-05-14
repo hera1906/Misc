@@ -12,6 +12,11 @@ https://www.dannyadam.com/blog/2019/05/debugging-in-vim/
     (gdb) file ~~path~~
 
 
+== Simple GUI ==
+gdb -tui
+
+in gdb: Press Ctrl+L to show GUI
+
 == Breakpoint  ==
 
 In (gdb) prompt:
@@ -35,4 +40,5 @@ in (gdb) prompt:
 == Stepping ==
 
 In (gdb) prompt:
-   (gdb) stepZZ
+   s[tep] : Step into
+   n[ext] : Step over

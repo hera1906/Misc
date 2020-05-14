@@ -237,6 +237,7 @@ myKeys =
         , ("M-C-k", sendMessage MirrorExpand)
         , ("M-S-;", sendMessage zoomReset)
         , ("M-;", sendMessage ZoomFullToggle)
+        , ("M-e", sendMessage ZoomFullToggle)
 
     -- Workspaces
         , ("M-.", nextScreen)                           -- Switch focus to next monitor

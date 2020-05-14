@@ -235,8 +235,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 "Plug 'ajh17/VimCompletesMe'     " Completion plugins
-Plugin 'natebosch/vim-lsc'      " Language server plugin:
-Plugin 'liuchengxu/vista.vim'
+""Plugin 'natebosch/vim-lsc'      " Language server plugin:
+""Plugin 'liuchengxu/vista.vim'
 Plugin 'm-pilia/vim-ccls'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'tpope/vim-commentary'
@@ -248,11 +248,13 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'mbbill/undotree'
 Plugin 'junegunn/fzf', { 'do': './install --bin' }
 Plugin 'junegunn/fzf.vim'
+Plugin 'laher/fuzzymenu.vim'
 Plugin 'dense-analysis/ale'
 Plugin 'vimwiki/vimwiki'
 Plugin 'vhdirk/vim-cmake'
 "Plugin 'ludovicchabant/vim-gutentags'
 "Plugin 'skywind3000/gutentags_plus.git'
+Plugin 'ycm-core/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -270,6 +272,20 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 "
 
+" ==========================================================
+" FZF
+" ==========================================================
+let $FZF_DEFAULT_COMMAND='ag -l --nocolor --ignore-case'
+nnoremap <leader>p :Files<CR>
+nnoremap <leader>l :Lines<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap ; :Buffers<CR>
+" ==========================================================
+" FuzzyMenu
+" ==========================================================
+nmap <Leader><Leader> <Plug>Fzm
+vmap <Leader><Leader> <Plug>FzmVisual
+"call fuzzymenu#Add('YouCompleteMe', {'exec': 'YcmCompleter GoTo', 'after': 'call fuzzymenu#InsertMode()', 'help': 'vim key mappings'})
 
 
 " ========================================================
@@ -279,46 +295,39 @@ filetype plugin indent on    " required
 "map <C-n> :NERDTreeToggle<CR>
 map <leader>n :NERDTreeToggle<CR>
 
+" ==========================================================
 " The Silver Searcher
+" ==========================================================
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
 endif
-
-" FZF
-let $FZF_DEFAULT_COMMAND='ag -l --nocolor --ignore-case'
-nnoremap <leader>p :Files<CR>
-nnoremap <leader>l :Lines<CR>
-nnoremap <leader>b :Buffers<CR>
-nnoremap ; :Buffers<CR>
-
-
 
 " ==========================================================
 " vim-lsc (Language Server)
 " https://github.com/natebosch/vim-lsc
 " ==========================================================
 " vim-lsc lsp completion
-let g:lsc_server_commands = {
-\ 'cpp': {
-\    'command': 'ccls',
-\    'message_hooks': {
-\        'initialize': {
-\            'initializationOptions': {'cache': {'directory': '/tmp/ccls/cache'}},
-\            'rootUri': {m, p -> lsc#uri#documentUri(fnamemodify(findfile('compile_commands.json', expand('%:p') . ';'), ':p:h'))}
-\        },
-\    },
-\    'log_level': -1,
-\    'suppress_stderr': v:true,
-\  },
-\  'python': {
-\  'command': 'pyls',
-\  },
-\}
+""let g:lsc_server_commands = {
+""\ 'cpp': {
+""\    'command': 'ccls',
+""\    'message_hooks': {
+""\        'initialize': {
+""\            'initializationOptions': {'cache': {'directory': '/tmp/ccls/cache'}},
+""\            'rootUri': {m, p -> lsc#uri#documentUri(fnamemodify(findfile('compile_commands.json', expand('%:p') . ';'), ':p:h'))}
+""\        },
+""\    },
+""\    'log_level': -1,
+""\    'suppress_stderr': v:true,
+""\  },
+""\  'python': {
+""\  'command': 'pyls',
+""\  },
+""\}
 
 " Apply the defaults with a few overrides:
 "let g:lsc_auto_map = v:true
-let g:lsc_auto_map = {'defaults': v:true, 'ShowHover': 'K'}
+""let g:lsc_auto_map = {'defaults': v:true, 'ShowHover': 'K'}
 
 " Use all the defaults (recommended):
 "let g:lsc_auto_map = v:true
@@ -347,12 +356,12 @@ let g:lsc_auto_map = {'defaults': v:true, 'ShowHover': 'K'}
 "    \ 'Completion': 'completefunc',
 "    \}
 "
-set completeopt=menu,menuone,noinsert,noselect
+""set completeopt=menu,menuone,noinsert,noselect
 
-let g:lsc_enable_autocomplete  = v:true
-let g:lsc_enable_diagnostics   = v:false
-let g:lsc_reference_highlights = v:false
-let g:lsc_trace_level          = 'off'
+""let g:lsc_enable_autocomplete  = v:true
+""let g:lsc_enable_diagnostics   = v:false
+""let g:lsc_reference_highlights = v:false
+""let g:lsc_trace_level          = 'off'
 
 " ==========================================================
 " vista.vim
@@ -361,10 +370,10 @@ let g:lsc_trace_level          = 'off'
 " Set the executive for some filetypes explicitly. Use the explicit executive
 " instead of the default one for these filetypes when using `:Vista` without
 " specifying the executive.
-let g:vista_executive_for = {
-  \ 'cpp': 'vim_lsc',
-  \ 'python': 'vim_lsc',
-  \ }
+""let g:vista_executive_for = {
+""  \ 'cpp': 'vim_lsc',
+""  \ 'python': 'vim_lsc',
+""  \ }
 
 
 " ==========================================================
@@ -516,6 +525,8 @@ if has("persistent_undo")
     set undofile
 endif
 
+
+
 " ==========================================================
 " Ale
 " ==========================================================
@@ -563,6 +574,23 @@ let g:ale_fix_on_save = 1
 " 4: You may see a lot of gutentags logs, after that:
 "    :messages
 "    To see the gtags log.
+
+" ==========================================================
+" ycm (YouCompleteMe)
+" ==========================================================
+let g:ycm_clangd_binary_path = "/usr/local/bin/clangd"
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
+" Add some ycm commands to fuzzymenu:
+call fuzzymenu#Add('ycm:GoTo', {'exec': 'YcmCompleter GoTo'})
+call fuzzymenu#Add('ycm:Declaration', {'exec': 'YcmCompleter GoToDeclaration'})
+call fuzzymenu#Add('ycm:Definition', {'exec': 'YcmCompleter GoToDefinition'})
+call fuzzymenu#Add('ycm:References', {'exec': 'YcmCompleter GoToReferences'})
+call fuzzymenu#Add('ycm:Implementation', {'exec': 'YcmCompleter GoToImplementation'})
+call fuzzymenu#Add('ycm:Type', {'exec': 'YcmCompleter GoToType'})
+call fuzzymenu#Add('ycm:GetType', {'exec': 'YcmCompleter GetType'})
+call fuzzymenu#Add('ycm:GetDoc', {'exec': 'YcmCompleter GetDoc'})
+call fuzzymenu#Add('ycm:Fixit', {'exec': 'YcmCompleter Fixit'})
+call fuzzymenu#Add('ycm:Format', {'exec': 'YcmCompleter Format'})
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")

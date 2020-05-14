@@ -20,6 +20,8 @@ alias ....='cd ../../..'
 alias ll="ls -l"
 alias la="ls -a"=
 
-alias cmk="cmake -DCMAKE_EXPORT_COMPILE=ON -DCMAKE_BUILD_TYPE=Debug -DBUILD_EXAMPLES=ON"
-alias dcmk="dexec cmake -DCMAKE_EXPORT_COMPILE=ON -DCMAKE_BUILD_TYPE=Debug -DBUILD_EXAMPLES=ON"
+alias cmk="cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+alias dcmk="dexec cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+alias cmkd="cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug"
+alias dcmkd="dexec cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug"
 alias mk="dexec make"

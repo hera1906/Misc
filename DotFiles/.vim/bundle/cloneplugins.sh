@@ -42,10 +42,10 @@ git clone https://github.com/Xuyuanp/nerdtree-git-plugin.git
 # Install language server: ccls
 # Build with cmake option: -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 # Remember to symlink compile_commands.json to project root e.g. ln -s buildx86/compile_commands.json .
-git clone https://github.com/natebosch/vim-lsc.git
+#git clone https://github.com/natebosch/vim-lsc.git
 
 # Viewer & Finder for LSP symbols and tags
-git clone https://github.com/liuchengxu/vista.vim.git
+#git clone https://github.com/liuchengxu/vista.vim.git
 
 # Vim plugin for the ccls language server
 git clone https://github.com/m-pilia/vim-ccls.git
@@ -71,8 +71,12 @@ git clone https://github.com/tpope/vim-fugitive.git
 # The undo history visualizer for vim
 git clone https://github.com/mbbill/undotree.git
 
-#
+# Fuzzy finder
 git clone https://github.com/junegunn/fzf.git
+git clone https://github.com/junegunn/fzf.vim.git
+
+# Fuzzy menu (requires fzf and fzf.vim)
+git clone https://github.com/laher/fuzzymenu.vim.git
 
 # Check syntax in Vim asyncrhonously and fix files, with Language Server Protocol (LSP) support
 git clone https://github.com/dense-analysis/ale.git
@@ -88,3 +92,7 @@ git clone https://github.com/vhdirk/vim-cmake.git
 #git clone https://github.com/ludovicchabant/vim-gutentags.git
 # Gutentags_Plus (requires vim-gutentags.git)
 #git clone https://github.com/skywind3000/gutentags_plus.git
+#
+# YouCompleteMe.
+git clone https://github.com/ycm-core/YouCompleteMe.git
+echo Follow YouCompleteMe installation at https://github.com/ycm-core/YouCompleteMe
