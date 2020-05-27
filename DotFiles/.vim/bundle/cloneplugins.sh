@@ -96,3 +96,9 @@ git clone https://github.com/vhdirk/vim-cmake.git
 # YouCompleteMe.
 git clone https://github.com/ycm-core/YouCompleteMe.git
 echo Follow YouCompleteMe installation at https://github.com/ycm-core/YouCompleteMe
+
+# Pop-punk: Dark, high-constrast color theme for vim
+git clone https://github.com/bignimbus/pop-punk.vim
+
+# Light-line: A light and configurable statusline/tabline plugin
+git clone https://github.com/itchyny/lightline.vim

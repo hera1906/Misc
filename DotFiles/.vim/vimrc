@@ -26,7 +26,9 @@ set nowb
 set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Folding
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set foldmethod=marker
 "set foldmethod=syntax           " Folding based on syntax
 
@@ -95,7 +97,9 @@ set nojoinspaces   " Use one space, not two, after punctuation.
 "set textwidth=120
 "set colorcolumn=+1 " Make it obvious where 80 characters is
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Line Numbers
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "set relativenumber
 "set number
 "set numberwidth=5
@@ -124,7 +128,9 @@ end
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-test mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <silent> <Leader>t :TestFile<CR>
 nnoremap <silent> <Leader>s :TestNearest<CR>
 nnoremap <silent> <Leader>l :TestLast<CR>
@@ -158,7 +164,9 @@ set complete+=kspell
 " Always use vertical diffs
 set diffopt+=vertical
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "netrw
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:netrw_fastbrowse=0 "fix hanging netrw buffer
 " nerdtree like setup https://shapeshed.com/vim-netrw/
 " run with :Vex
@@ -194,7 +202,8 @@ if $TERM == "xterm-256color"
 endif
 
 try
-    colorscheme apprentice
+    "colorscheme apprentice
+    colorscheme pop-punk
 catch
 endtry
 
@@ -255,6 +264,8 @@ Plugin 'vhdirk/vim-cmake'
 "Plugin 'ludovicchabant/vim-gutentags'
 "Plugin 'skywind3000/gutentags_plus.git'
 Plugin 'ycm-core/YouCompleteMe'
+Plugin 'bignimbus/pop-punk.vim'
+Plugin 'itchyny/lightline.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -273,19 +284,22 @@ filetype plugin indent on    " required
 "
 
 " ==========================================================
-" FZF
+" fzf: Fuzzyfinder
 " ==========================================================
 let $FZF_DEFAULT_COMMAND='ag -l --nocolor --ignore-case'
 nnoremap <leader>p :Files<CR>
 nnoremap <leader>l :Lines<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap ; :Buffers<CR>
+
 " ==========================================================
 " FuzzyMenu
 " ==========================================================
 nmap <Leader><Leader> <Plug>Fzm
 vmap <Leader><Leader> <Plug>FzmVisual
 "call fuzzymenu#Add('YouCompleteMe', {'exec': 'YcmCompleter GoTo', 'after': 'call fuzzymenu#InsertMode()', 'help': 'vim key mappings'})
+call fuzzymenu#Add('gdb:load1', {'exec': 'packadd termdebug'})
+call fuzzymenu#Add('gdb:load2', {'exec': 'Termdebug'})
 
 
 " ========================================================
@@ -591,6 +605,15 @@ call fuzzymenu#Add('ycm:GetType', {'exec': 'YcmCompleter GetType'})
 call fuzzymenu#Add('ycm:GetDoc', {'exec': 'YcmCompleter GetDoc'})
 call fuzzymenu#Add('ycm:Fixit', {'exec': 'YcmCompleter Fixit'})
 call fuzzymenu#Add('ycm:Format', {'exec': 'YcmCompleter Format'})
+
+" ==========================================================
+" LightLine
+" ==========================================================
+set noshowmode  " Lightline shows the mode
+" Example colorschemes: powerline (default),  wombat, PaperColor, one, jellybeans, solarized, seoul256
+let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ }
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")

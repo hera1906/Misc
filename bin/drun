@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ "$(docker images -q next-pc-user:latest 2> /dev/null)" == "" ]; then
+if [ "$(docker images -q next-pc-user:latest 2> /dev/null)" = "" ]; then
     echo "next-pc-user:latest image not found, run ./build to generate it"
     exit 1
 fi

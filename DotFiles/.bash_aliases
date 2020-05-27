@@ -17,8 +17,10 @@ alias cdex='cd ~/src/NExT/opc-ua-set-up-interfac/opc-ua-server/src'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias ll="ls -l"
-alias la="ls -a"=
+
+alias ll='ls -AlF'
+alias la='ls -A'
+alias l='ls -CF'
 
 alias cmk="cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
 alias dcmk="dexec cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"

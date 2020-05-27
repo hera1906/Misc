@@ -37,8 +37,15 @@ in (gdb) prompt:
   In vim:
   *:Run* _[args]_
 
-== Stepping ==
+== Commands ==
 
 In (gdb) prompt:
    s[tep] : Step into
    n[ext] : Step over
+
+
+   <return> : Repeat command
+   file <file> : Load file to debug
+   list : list specified function or line
+   path : Add directories to beginning of search path for object files
+   search: Search for regular expression
