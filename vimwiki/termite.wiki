@@ -1,0 +1,6 @@
+== How to compile and install on Ubuntu ==
+
+https://askubuntu.com/questions/739163/how-to-install-termite
+
+
+https://github.com/Corwind/termite-install

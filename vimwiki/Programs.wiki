@@ -16,6 +16,8 @@
   * nigrogen   - X11 background previewer and setter
   * compton    - a compositor for X11
 
+  * [[termite]]    - Termite terminal emulator
+
   * [[NetBeans]]   - NetBeans development environment
 
  == Window managers ==
