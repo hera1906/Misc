@@ -1,83 +1,75 @@
-XMONAD KEYBINDINGS
+    -- Xmonad
+        M-C-r           -- Recompiles xmonad
+        M-S-r           -- Restarts xmonad
+        M-S-q           -- Quits xmonad
 
-Xmonad
-  M-C-r                 -- Recompiles xmonad
-  M-S-r                 -- Restarts xmonad
-  M-S-q                 -- Quits xmonad
+    -- Terminal
+        M-<Return>      -- Terminal
 
-Windows
-  M-S-c                 -- Kill the currently focused client
-  M-S-a                 -- Kill all the windows on current workspace
+    --- Dmenu Scripts (Alt+Ctr+Key)
+        M-S-<Return>    -- Dmenu run
 
-Floating windows
-  M-<Delete>            -- Push floating window back to tile.
-  M-S-<Delete>          -- Push ALL floating windows back to tile.
+    -- Prompts
+        M-S-<Return>    -- Shell Prompt
+        M-S-o           -- Xmonad Prompt
+        M-S-s           -- Ssh Prompt
+        M-S-m           -- Manpage Prompt
 
-  M-S-g                 -- Go to selected
-  M-S-b                 -- Bring selected
+    -- Windows
+        M-S-c           -- Kill the currently focused client
+        M-S-a           -- Kill all windows on current workspace
 
-Windows navigation
-  M-m                   -- Move focus to the master window
-  M-j                   -- Move focus to the next window
-  M-k                   -- Move focus to the prev window
-  M-S-m                 -- Swap the focused window and the master window
-  M-S-j                 -- Swap the focused window with the next window
-  M-S-k                 -- Swap the focused window with the prev window
-  M-<Backspace>         -- Moves focused window to master
-  -- M1-S-<Tab>         -- Rotate all windows except master, keep focus
-  -- M1-C-<Tab>         -- Rotate all the windows in the current stack
-  M-S-s                 -- Copy to all
-  M-C-s                 -- Kill all other copies
+    -- Floating windows
+        M-f             -- Toggles floats layout
+        M-<Delete>      -- Push floating window back to tile
+        M-S-<Delete>    -- Push ALL floating windows to tile
 
-  -- M-C-M1-<Up>        -- Arrange
-  -- M-C-M1-<Down>      -- DeArrange
-  M-<Up>                -- Move focused window to up
-  M-<Down>              -- Move focused window to down
-  M-<Right>             -- Move focused window to right
-  M-<Left>              -- Move focused window to left
-  M-S-<Up>              -- Increase size of focused window up
-  M-S-<Down>            -- Increase size of focused window down
-  M-S-<Right>           -- Increase size of focused window right
-  M-S-<Left>            -- Increase size of focused window left
-  M-C-<Up>              -- Decrease size of focused window up
-  M-C-<Down>            -- Decrease size of focused window down
-  M-C-<Right>           -- Decrease size of focused window right
-  M-C-<Left>            -- Decrease size of focused window left
+    -- Grid Select
+        M-S-t           -- Grid spawn selected'
+        M-S-g           -- Grid goto selected
+        M-S-b           -- Gridbring selected
 
-Layouts
-  M-<Space>             -- Switch to next layout
-  M-S-<Space>           -- Toggles struts
-  M-S-n                 -- Toggles noborder
-  M-S-=                 -- Toggles noborder/full
-  M-S-f                 -- Toggles float
-  M-S-x                 -- Toggles Reflect X
-  M-S-y                 -- Toggles Reflect Y
-  M-S-m                 -- Toggles Mirror
+    -- Windows navigation
+        M-m             -- Move focus to the master window
+        M-j             -- Move focus to the next window
+        M-k             -- Move focus to the prev window
+        M-S-j           -- Swap focused window with next window
+        M-S-k           -- Swap focused window with prev window
+        M-<Backspace>   -- Moves focused window to master, others maintain order
+        M-C-s
 
-  -- M-<KP_Multiply>    -- Increase number of clients in the master pane
-  -- M-<KP_Divide>      -- Decrease number of clients in the master pane
-  -- M-S-<KP_Multiply>  -- Increase number of windows that can be shown
-  -- M-S-<KP_Divide>    -- Decrease number of windows that can be shown
+        M-<Up>          --  Move focused window to up
+        M-<Down>        --  Move focused window to down
+        M-<Right>       --  Move focused window to right
+        M-<Left>        --  Move focused window to left
+        M-S-<Up>        --  Increase size of focused window up
+        M-S-<Down>      --  Increase size of focused window down
+        M-S-<Right>     --  Increase size of focused window right
+        M-S-<Left>      --  Increase size of focused window left
+        M-C-<Up>        --  Decrease size of focused window up
+        M-C-<Down>      --  Decrease size of focused window down
+        M-C-<Right>     --  Decrease size of focused window right
+        M-C-<Left>      --  Decrease size of focused window left
 
-  M-C-h                 -- Shrink
-  M-C-l                 -- Expand
-  M-C-j                 -- Mirror shrink
-  M-C-k                 -- Mirror expand
-  M-S-;                 -- Zoom reset
-  M-;                   -- Toggle zoom full
+    -- Layouts
+        M-<Tab>         -- Switch to next layout
+        M-<Space>       -- Toggles noborder/full
+        M-S-<Space>     -- Toggles struts
+        M-S-n           -- Toggles noborder
+        M-S-x           -- Togglex Reflect X
+        M-S-y           -- Togglex Reflect Y
 
-Workspaces
-  -- M-<KP_Add>         -- Go to next workspace
-  -- M-<KP_Subtract>    -- Go to previous workspace
-  -- M-S-<KP_Add>       -- Shifts focused window to next workspace
-  -- M-S-<KP_Subtract>  -- Shifts focused window to previous workspace
+        M-h             -- Shrink
+        M-l             -- Expand
+        M-C-j           -- Mirror Shrink
+        M-C-k           -- Mirror Expand
+        M-S-;           -- Zoom Reset
+        M-;             -- Zoom full toggle
 
-Scratchpads
-  M-C-<Return>          -- Terminal scratchpad
-  M-C-c                 -- Cmus scratchpad
+    -- Workspaces
+        M-.             -- Switch focus to next monitor
+        M-,             -- Switch focus to prev monitor
 
-Open Terminal
-  M-<Return>            -- New terminal
-
-Dmenu
-  M-d                   -- Open dmenu
+    -- Scratchpads
+        M-C-<Return>    -- Scratchpad Terminal
+        M-C-c           -- Scratchpad cmus

@@ -22,8 +22,6 @@ alias ll='ls -AlF'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias cmk="cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
-alias dcmk="dexec cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
-alias cmkd="cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug -DENABLE_ASAN=ON"
-alias dcmkd="dexec cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug -DENABLE_ASAN=ON"
-alias mk="dexec make"
+alias cmk="nice cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+alias cmkd="nice cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug -DENABLE_ASAN=ON"
+alias mk="nice make -j"

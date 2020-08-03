@@ -51,6 +51,8 @@ C-W z Close any preview window
 C-W }  Use identifier under cursor as tag execute ":ptag"
 C-W g } Use identifier under cursor as tag and execute ":ptjump"
 
+C-O Go to [count] older cursor position in the jump list (:ju prints jump list)
+C-i Go to [count] newer cursor position in the jump list
 == Folding ==
 set foldmethod=manual indent marker
 {{{     :  Fold level++
