@@ -1,6 +1,0 @@
-See https://computingforgeeks.com/install-termite-terminal-on-ubuntu-18-04-ubuntu-16-04-lts/
-
-fix compile error in bindings/vala/vala.app by adding
-    private int dummy;
-
-after last declasration of member variable in options (l. 858)
