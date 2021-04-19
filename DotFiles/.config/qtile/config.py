@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-#  ____ _____ 
+#  ____ _____
 # |  _ \_   _|  Derek Taylor (DistroTube)
 # | | | || |    http://www.youtube.com/c/DistroTube
 # | |_| || |    http://www.gitlab.com/dwt1/
 # |____/ |_|
-#        
-# A customized config.py for Qtile window manager (http://www.qtile.org)     
+#
+# A customized config.py for Qtile window manager (http://www.qtile.org)
 # Modified by Derek Taylor (http://www.gitlab.com/dwt1/ )
 #
 # The following comments are the copyright and licensing information from the default
@@ -33,9 +33,11 @@ from libqtile import layout, bar, widget, hook
 from typing import List  # noqa: F401
 
 ##### DEFINING SOME VARIABLES #####
-mod = "mod4"                                     # Sets mod key to SUPER/WINDOWS
-myTerm = "st"                                    # My terminal of choice
-myConfig = "/home/dt/.config/qtile/config.py"    # The Qtile config file location
+#mod = "mod4"                                     # Sets mod key to SUPER/WINDOWS
+mod = "mod1"                                     # Sets mod key to ALT
+#myTerm = "st"                                    # My terminal of choice
+myTerm = "terminator"                            # My terminal of choice
+myConfig = "~/.config/qtile/config.py"    # The Qtile config file location
 
 ##### KEYBINDINGS #####
 keys = [
@@ -280,7 +282,7 @@ groups = [Group(name, **kwargs) for name, kwargs in group_names]
 
 for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
-    keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group	
+    keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
 
 ##### DEFAULT THEME SETTINGS FOR LAYOUTS #####
 layout_theme = {"border_width": 2,

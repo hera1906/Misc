@@ -86,7 +86,8 @@ myModMask = mod1Mask       -- Sets modkey to super/windows key
 --myModMask = mod4Mask       -- Sets modkey to super/windows key
 
 myTerminal :: [Char]
-myTerminal = "termite"   -- Sets default terminal
+myTerminal = "terminator"   -- Sets default terminal
+-- myTerminal = "termite"   -- Sets default terminal
 --myTerminal = "alacritty"   -- Sets default terminal
 
 myBorderWidth :: Dimension
