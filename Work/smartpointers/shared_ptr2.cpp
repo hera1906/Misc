@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
     {
         std::shared_ptr<C> sp2{rp}; // BAD!
         std::cout << "sp1 use_count is " <<  sp1.use_count() << std::endl;
-        std::cout << "sp2 use_count is " <<  sp1.use_count() << std::endl;
+        std::cout << "sp2 use_count is " <<  sp2.use_count() << std::endl;
 
         // sp2 goes out of scope and deletes the raw pointer rp
     }

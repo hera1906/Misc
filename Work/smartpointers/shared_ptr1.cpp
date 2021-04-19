@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
     {
         std::shared_ptr<C> sp2{sp1};
         std::cout << "sp1 use_count is " <<  sp1.use_count() << std::endl;
-        std::cout << "sp2 use_count is " <<  sp1.use_count() << std::endl;
+        std::cout << "sp2 use_count is " <<  sp2.use_count() << std::endl;
         assert(sp1.get() == sp2.get());
 
         // sp2 goes out of scope and does not delete the raw pointer rp since use count now is 1
