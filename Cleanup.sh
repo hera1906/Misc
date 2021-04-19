@@ -10,15 +10,15 @@ rm .bashrc
 rm -rf .config
 rm .gdbinit
 rm .gitconfig
+rm .gtkrc-2.0
 rm .inputrc
 rm .profile
+rm .spectrwm.conf
 rm -rf .tmux
 rm .tmux.conf
 rm -rf .vim
-rm .viminfo
 rm -rf .xmonad
 rm .Xresources
 rm -rf .fonts
-rm -rf vimwiki
 rm -rf bin
-rm -rf .spectrwm.conf
+rm -rf vimwiki

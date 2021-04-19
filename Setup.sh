@@ -11,15 +11,15 @@ ln $DOTDIR/.bashrc .
 ln -s $DOTDIR/.config .
 ln $DOTDIR/.gdbinit .
 ln $DOTDIR/.gitconfig .
+ln $DOTDIR/.gtkrc-2.0 .
 ln $DOTDIR/.inputrc .
 ln $DOTDIR/.profile .
+ln $DOTDIR/.spectrwm.conf .
 ln -s $DOTDIR/.tmux .
 ln $DOTDIR/.tmux.conf .
 ln -s $DOTDIR/.vim .
-ln $DOTDIR/.viminfo .
 ln -s $DOTDIR/.xmonad .
 ln $DOTDIR/.Xresources .
 ln -s $DOTDIR/.fonts .
-ln -s $MISCDIR/vimwiki .
 ln -s $MISCDIR/bin .
-ln -s $DOTDIR/.spectrwm.conf .
+ln -s $MISCDIR/vimwiki .
