@@ -594,6 +594,10 @@ let g:ale_fix_on_save = 1
 " ==========================================================
 let g:ycm_clangd_binary_path = "/usr/local/bin/clangd"
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
+nnoremap <leader>ji :YcmCompleter GoToImprecise<CR>
+map <C-]> :YcmCompleter GoToImprecise<CR>
+" C-o goes back, C-i goes forward again
+
 " Add some ycm commands to fuzzymenu:
 call fuzzymenu#Add('ycm:GoTo', {'exec': 'YcmCompleter GoTo'})
 call fuzzymenu#Add('ycm:Declaration', {'exec': 'YcmCompleter GoToDeclaration'})

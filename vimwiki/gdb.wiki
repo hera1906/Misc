@@ -2,50 +2,143 @@
 
 https://www.dannyadam.com/blog/2019/05/debugging-in-vim/
 
-== Initialization ==
+== termdebug  ==
     :packadd termdebug
-    :Termdebug ~~path~~
+    :Termdebug <path>
 
     instead of specifying <path> when loading Termdebug, the executable can be
     loaded at the (gdb) prompt with:
 
-    (gdb) file ~~path~~
+    (gdb) file <path>
 
+= Cheat sheet =
+Source: https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf
 
-== Simple GUI ==
-gdb -tui
+== Running ==
+gdb -tui              : Start gdb with simple GUI (in gdb: Press Ctrl+L to show GUI)
+gdb <path> [<core>]   : Start GDB with optional core dump
+gdb --args <path> <args..>: Start gdb and pass arguments
+gdb --pid <pid>       : Start gdb and attach to process
 
-in gdb: Press Ctrl+L to show GUI
-
-== Breakpoint  ==
-
-In (gdb) prompt:
-  (gdb) *b* _function_
-  (gdb) *b* _line_
-
-  Navigate to line in editor and type:
-  *:Break*
-
-  Remove breakpoint with
-  *:Clear*
-
-== Start program ==
-
-in (gdb) prompt:
-  (gdb) *run* _[args]_
-
-  In vim:
-  *:Run* _[args]_
+set args <args...>    : Set arguments to pass to program to be debugged
 
 == Commands ==
+<return>              : Repeat command
+file <executable-path>: Load executable into gdb
+r[un]                 : Run the program
+kill                  : Kill the running program
+search                : Search for regular expression
+path                  : Add directories to beginning of search path for object files
+search                : Search for regular expression
 
-In (gdb) prompt:
-   s[tep] : Step into
-   n[ext] : Step over
+== Breakpoints  ==
+b[reak] <function>    : Set breakpoint at the given function
+b[reak] <line>        : Set breakpoint at the given line number in the current file
+b[reak] <file>:<line> : Set breakpoint at the given line number in the given file
+d[elete] <breakpoint#>: Delete a breakpoint
+clear                 : Delete all breakpoints
+enable                : Enable a disabled breakpoint
+disable <breakpoint#> : Disable a breakpoint
+
+== Watchpoints  ==
+watch <function>      : Set watchpoint at the given function
+watch <line>          : Set watchpoint at the given line number in the current file
+watch <file>:<line>   : Set watchpoint at the given line number in the given file
+d[elete] <watchpoint#>: Delete a watchpoint
+enable <watchpoint#>  : Enable a watchpoint
+disable <watchpoint#> : Disable a watchpoint
 
 
-   <return> : Repeat command
-   file <file> : Load file to debug
-   list : list specified function or line
-   path : Add directories to beginning of search path for object files
-   search: Search for regular expression
+== Conditional breakpoints and watchpoints  ==
+break/watch <where> if <condition>:
+                        Break/watch at the given localtion if the condition is met.
+                        Conditions may be almost any C expression that evaluates to true or false.
+condition <breakpoint#> <condition>:
+                        Set/change the condition of an existing break- or watchpoint.
+
+== Examining the stack ==
+backtrace [full]     : Show call stack. If full is specified also print local variables in each frame
+bt [full]            : Same
+where [full]         : Same
+
+f[rame] <frame#>     : Select the stack frame to operate on
+
+
+== Stepping ==
+s[tep]               : Step into function
+n[ext]               : Step over function
+finish               : Continue until the current function returns
+c[ontinue]           : Continue normal execution
+
+== Variables ==
+print/format <what>  : Print content of variable/memory location/register
+display/format <what>: like "print", but print the information after each step
+undisplay <#>        : Remove the "display" with the given number
+enable display <#>   : Enable the "display" with the given number
+disable display <#>  : Disable the "display" with the given number
+
+== Memory ==
+x/<n><f><u> <address>:
+                    Print memory.
+                    <n>: How many units to print (default 1)
+                    <f>: format character (like "print")
+                        a: Pointer
+                        c: Read as integer, print as character
+                        d: Integer, print as signed decimal
+                        f: Floating point number
+                        o: Integer, print as octal
+                        s: Null terminated string
+                        t: Integer, print as binary
+                        u: Integer, print as unsigned decimal
+                        x: Integer, print as hexadecimal
+                    <u>: Unit:
+                        b: Byte
+                        h: Half-word (2 bytes)
+                        w: Word (4 bytes)
+                        g: Giant word (8 bytes)
+
+== <what> ==
+<expression>               : Almost any C expression including function calls (must be prefixed with cast to tell gdb the return type)
+<file_name>:<variable_name>: Content of the static variable defined in the named file
+<function>:<variable_name> : Content of the variable defined in the named function (if on stack)
+{<type>}<address>          : Content at address interpreted as being of the given C type
+$<register>                : Content of named register
+                             $esp: Stack pointer
+                             $ebp: Frame pointer
+                             $eip: Program pointer
+                             ...
+
+== Threads ==
+thread <thread#>           : Chose thread to operate on
+
+== Manipulating the program ==
+set var <variable_name>=<value>: Change the content of a variable
+return <expression>        : Force the current function to return immediately, passing the given value
+
+== Sources ==
+directory <directory>      : Add directory to the list of directories that is searched for sources
+l[ist]
+l[ist] [<filename>:]<function>
+l[ist] [<filename>:]<line_number>
+l[ist] <first>[,<last>]    : Shows the current or given source content.
+set listsize <count>       : Set how many lines to show in "list"
+
+
+== Signals ==
+handle <signal> <options>  : Set how to handle signals.
+                             <options>:
+                               [no]print: (Don't) print a message when signal occurs
+                               [no]stop: (Don't) stop the progream when signal occurs
+                               [no]pass: (Don't) pass the signal to the program
+== Information  ==
+disassemble [<where>]      : Disassemble the current function or given location
+info args                  : Print the arguments to the function of the current stack frame
+info breakpoints           : Print information about break- and watchpoints
+info display               : Print information about the "displays"
+info locals                : Print the local variables in the current stack frame
+info sharedlibrary         : List loaded shared libraries
+info signals               : List all signals and how they are handled
+info threads               : List all threads
+show directories           : Print all directories in which gdb searches for source files
+show listsize              : Print how many lines are shown in the "list" command
+whatis <variable_name>     : Print type of named variable
