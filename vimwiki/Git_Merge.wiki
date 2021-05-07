@@ -1,8 +1,8 @@
 == Merge ==
 
-git merge --no-ff origin/2245_develop   # Merge mstr into current branch
+git merge --no-ff origin/master         # Merge master into current branch
 git push
 git mergetool                           # Solve conflicts
 
-git checkout 2245_develop               # Switch to master git pull
+git checkout master                     # Switch to master git pull
 git merge --no-ff <branchname>          # merge branch into master

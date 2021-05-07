@@ -16,7 +16,7 @@
   * pandoc      - General markup converter
   * gwenview    - Picture viewer
   * okular      - Universal Document viewer (including pdf)
-  * nigrogen    - X11 background previewer and setter
+  * nitrogen    - X11 background previewer and setter
   * compton     - A compositor for X11
 
   * [[termite]]     - Termite terminal emulator

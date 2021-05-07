@@ -28,7 +28,26 @@ alias l='ls -CF'
 
 alias cmk="nice cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
 alias cmkd="nice cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Debug -DENABLE_ASAN=ON"
-alias mk="nice make -j"
+alias mk="nice make -j 5"
+
+# Aliases for compating in git:
+#
+# assumes that
+#  Set up diff tool for text and gui environment:
+#    git --gloval diff.tool vimdiff
+#    git --global diff.guitool kdiff3
+#  Define git aliases
+#    git config --global alias.vd difftool
+#    git config --global alias.gv 'difftool -g'
+#  Stop prompting:
+#    git config --global difftool.prompt 0
+#
+#   Compare using vim:
+alias gitv="git difftool"
+#  Compare using kdiff3
+alias gitg="git difftool -g"
+
+alias uae="nohup UaExpert-1.5.1-331-x86_64.AppImage &"
 
 #alias vi=vimx
 #alias netbeans='/usr/local/netbeans-8.2/bin/netbeans'

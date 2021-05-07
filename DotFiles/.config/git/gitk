@@ -51,7 +51,8 @@ set indexcirclecolor #00ff00
 set circlecolors {white blue gray blue blue}
 set linkfgcolor blue
 set circleoutlinecolor black
-set geometry(main) 1377x761+260+102
+set web_browser xdg-open
+set geometry(main) 1377x761+1335+146
 set geometry(state) normal
 set geometry(topwidth) 1377
 set geometry(topheight) 225
