@@ -38,6 +38,9 @@ git clone https://github.com/Xuyuanp/nerdtree-git-plugin.git
 # Vim plugin for tmux.conf
 #git clone git://github.com/tmux-plugins/vim-tmux.git
 
+# Seamless navigation between tmux panes and vim splits (C-hjkl to switch panes)
+git clone https://github.com/christoomey/vim-tmux-navigator.git
+
 # A vim plugin for communicating with a language server
 # Install language server: ccls
 # Build with cmake option: -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
