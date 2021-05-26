@@ -139,3 +139,5 @@ fi
 # This should not be here, but apparently .bash_profile nor .profile is executed
 PATH=$PATH:~/bin
 export PATH
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

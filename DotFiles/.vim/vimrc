@@ -94,7 +94,6 @@ set incsearch      " Makes search act like search in modern browsers
 
 set nojoinspaces   " Use one space, not two, after punctuation.
 
-"set textwidth=120
 "set colorcolumn=+1 " Make it obvious where 80 characters is
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -131,11 +130,11 @@ nnoremap <leader><leader> <c-^>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-test mappings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <Leader>t :TestFile<CR>
-nnoremap <silent> <Leader>s :TestNearest<CR>
-nnoremap <silent> <Leader>l :TestLast<CR>
-nnoremap <silent> <Leader>a :TestSuite<CR>
-nnoremap <silent> <leader>gt :TestVisit<CR>
+" nnoremap <silent> <Leader>t :TestFile<CR>
+" nnoremap <silent> <Leader>s :TestNearest<CR>
+" nnoremap <silent> <Leader>l :TestLast<CR>
+" nnoremap <silent> <Leader>a :TestSuite<CR>
+" nnoremap <silent> <leader>gt :TestVisit<CR>
 
 " Run commands that require an interactive shell
 nnoremap <Leader>r :RunInInteractiveShell<space>
@@ -291,7 +290,7 @@ let $FZF_DEFAULT_COMMAND='ag -l --nocolor --ignore-case'
 nnoremap <leader>p :Files<CR>
 nnoremap <leader>l :Lines<CR>
 nnoremap <leader>b :Buffers<CR>
-nnoremap ; :Buffers<CR>
+" nnoremap ; :Buffers<CR>
 
 " ==========================================================
 " FuzzyMenu
