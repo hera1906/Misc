@@ -1,4 +1,6 @@
-== Push/Pull ==
+= Push/Pull =
 
 git push                          # Push changes to remote
 git pull
+
+git pull upstream master

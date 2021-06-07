@@ -1,4 +1,4 @@
-== Set existing repository as origin  to push to ==
+= Set existing repository as origin  to push to =
 
 cd existing-project
 git remote set-url origin ssh://git@stash:7999/~helgeras/misc.git

@@ -1,8 +1,8 @@
-== Stage/Unstage ==
+= Stage/Unstage =
 
-git add -u                        # Update index where entries already exist
-git add -A (Stages all changes)   # U
-git add <files>                   # Stage <files>
-git rm <files>                    # Remove files from index and working tree
-git rm --cached <file>...          # Unstage (Remove file from index but not working tree)q
-git reset -q HEAD                 # Unstage all
+git add -u                            # Update index where entries already exist
+git add -A (Stages all changes)       #
+git add <files>                       # Stage <files>
+git rm <files>                        # Remove files from index and working tree
+git rm --cached <file>...             # Unstage (Remove file from index but not working tree)q
+git reset -q HEAD                     # Unstage all

@@ -1,4 +1,4 @@
-== Undo some changes in one or more commits: ==
+= Undo some changes in one or more commits: =
 
 *ONLY DO THIS IN A BRANCH. NEVER in a master*
 

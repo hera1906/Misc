@@ -1,33 +1,37 @@
+= Branches =
+
+
 == List branch ==
 
-git branch [-a] [-v]              # List existing branches
+    git branch [-a] [-v]                      # List existing branches
 
 == Switch branch ==
-git checkout <branch>                # Switch to branch (update index and work tree, set HEAD)
-                                     # local changes are kept so they can be committed
-                                     # -a: Both local and remote branches, -v: Verbose
+    git checkout <branch>                     # Switch to branch (update index and work tree, set HEAD)
+                                              # local changes are kept so they can be committed
+                                              # -a: Both local and remote branches, -v: Verbose
 
 == Checkout/Clone branch ==
 
-fetch
-git checkout -t origin/...              # Checkout and track branch that exists on server
+    fetch
+    git checkout -t origin/...                # Checkout and track branch that exists on server
 
-git checkout -B <branch>                # Create new branch, then check it out
-                                        # If branch existed, then reset it
+    git checkout -B <branch>                  # Create new branch, then check it out
+                                              # If branch existed, then reset it
 
-git checkout -b <branch> origin/<branch># Create local branch from remote branch
-git push -u <branch>                    # Track the branch
+    git checkout -b <branch> origin/<branch>  # Create local branch from remote branch
+    git push -u <branch>                      # Track the branch
 
 == Delete branch ==
 
-git branch -d branchname # Delete merged local branch
-git branch -D branchname # Delete unmerged local branch
+    git branch -d branchname                  # Delete merged local branch
+    git branch -D branchname                  # Delete unmerged local branch
 
 To delete it from the remote in old versions of Git use:
-git push --delete origin branchname # Delete branch from remote
-git push origin :branchname         # Delete branch from remote (old syntax)
+    git push --delete origin branchname       # Delete branch from remote
+    git push origin :branchname               # Delete branch from remote (old syntax)
 
+== Prune ==
 Once you delete the branch from the remote, you can prune to get rid of remote tracking branches with:
-git remote prune origin # Prune to get rid of remote tracking branches
+git remote prune origin                       # Prune to get rid of remote tracking branches
 
-git branch -dr branchname # Prune indiviual remote tracking branch
+    git branch -dr branchname                 # Prune indiviual remote tracking branch

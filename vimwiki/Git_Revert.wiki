@@ -1,4 +1,4 @@
-== Revert ==
+= Revert =
 
 git checkout filename               # Revert all changes in the file
 git checkout -- filename            # Same as above, but no possible confusion

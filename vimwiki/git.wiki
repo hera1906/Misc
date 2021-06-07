@@ -16,6 +16,8 @@
 * [[Git_Commit]] -- Commit
 * [[Git_Merge]] -- Merging
 *
+* [[Git_Tag]] -- Tagging
+*
 * [[Git_Revert]] -- Reverting changes
 * [[Git_Reset]] -- Reset
 * [[Git_Undo]] -- Undo some changes in one or more commits

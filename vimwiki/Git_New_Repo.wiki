@@ -1,4 +1,4 @@
-== Begin using new Repository ==
+= Begin using new Repository =
 
 cd existing-project
 git init

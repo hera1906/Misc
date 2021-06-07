@@ -1,0 +1,14 @@
+= Tagging =
+
+== View tags ==
+    git tag                             # View all created tags
+    git tag -l "<regexp>"               # Find tags containing specific characters
+    git show <tag>                      # Show information about tag
+
+== Add tag ==
+    git tag -a <tag> -m "<description>" # Add an annotated tag
+    git tag <tag>                       # Add a ligthweight tag
+    Git tag -a v1.2 <commitID>          # Add tag on specific commit
+
+== push tag ==
+    git push --tag                      # Pushes including tags

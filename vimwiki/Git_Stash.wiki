@@ -1,4 +1,4 @@
-== Stash management ==
+= Stash management =
 
 git stash save [<message>]
 git stash list

@@ -1,5 +1,7 @@
-== cmake ==
-Options
+= cmake =
+
+
+= Options =
 
      -DCMAKE_BUILD_TYPE=Debug/Release
      -DCMAKE_INSTALL_PREFIX=/a/path
@@ -10,7 +12,7 @@ Options
 
 See http://www.cmake.org/Wiki/CMake_Useful_Variables
 
-Process
+= Process =
      mkdir build
      cd build
      cmake -DCMAKE_INSTALL_PREFIX=/usr/local ..

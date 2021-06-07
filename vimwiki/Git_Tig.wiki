@@ -1,4 +1,4 @@
-== tig ==
+= tig =
 
 Webpage: http://jonas.nitro.dk/tig/manual.html
 

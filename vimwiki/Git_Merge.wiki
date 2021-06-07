@@ -1,4 +1,4 @@
-== Merge ==
+= Merge =
 
 git merge --no-ff origin/master         # Merge master into current branch
 git push

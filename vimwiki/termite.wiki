@@ -1,4 +1,4 @@
-== How to compile and install on Ubuntu ==
+= How to compile and install termite on Ubuntu =
 
 https://askubuntu.com/questions/739163/how-to-install-termite
 

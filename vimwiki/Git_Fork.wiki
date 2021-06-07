@@ -2,17 +2,19 @@
 
 Create the fork, then clone it
 
-Execute (example)
-  git remote add upstream https://gitla.hbm.com/share/jetproxy.git
+# Execute (example)
+    git remote add upstream https://gitlab.hbm.com/share/jetproxy.git
 
-Check with
-  git remote -v
+# Check with
+    git remote -v
 
-Update with latest from original repo ??
- git fetch upstream
+# Update with latest from original repo ??
+    git fetch upstream
+# or update with latest, merge into master:
+    git pull upstream master
 
-Create branch:
-  git checkout -B MyNewBranch
+# Create branch:
+    git checkout -B MyNewBranch
 
-Make changes, commit and push
-  git push --set-upstream origin MyNewBranch
+# Make changes, commit and push
+    git push --set-upstream origin MyNewBranch

@@ -1,4 +1,4 @@
-== Git Concepts ==
+= Git Concepts =
 
 * We clone a repository to get a local copy.
 * A branch is a pointed to a commit
