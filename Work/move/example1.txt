@@ -1,0 +1,58 @@
+No move constructor:
+==========================================================
+shared_ptr example 1:
+===== push_back C(10) =====
+Constructor: 10                             // Construction C(10) in main
+Constructor: 10                             // Construction in copy constructor
+Copy constructor: 10                        // Copy constructor
+Desctructor: data: 10                       // Destruction for C(10) copy
+===== push_back C(20) =====
+Constructor: 20                             // Construction C(20) in main
+Constructor: 20                             // Construction in copy constructor
+Copy constructor: 20                        // Copy constructor
+Desctructor: data: 20                       // Destruction for C(20) copy
+===== push_back C(30) =====
+Constructor: 30                             // Construction C(30) in main
+Constructor: 30                             // Construction in copy constructor
+Copy constructor: 30                        // Copy constructor
+  c30.data is not null
+===== push_back C(40) =====
+Constructor: 40                             // Construction C(40) in main
+Constructor: 40                             // Construction in copy constructor
+Copy constructor: 40                        //
+  c40.data is not null
+===== Done            =====
+Desctructor: data: 40                       // Destruction C(40) in main
+Desctructor: data: 30                       // Destruction C(30) in main
+Desctructor: data: 10                       // Destruction C(10) in collection
+Desctructor: data: 20                       // Destruction C(20) in collection
+Desctructor: data: 30                       // Destruction C(30) in collection
+Desctructor: data: 40                       // Destruction of C(40) in collection
+
+Move constructor:
+==========================================================
+shared_ptr example 1:
+===== push_back C(10) =====
+Constructor: 10                             // Construction C(10) in main
+Move constructor: 10                        // C10 moved into push_back
+Desctructor: data: null                     // Destruction of C(10) in main. data was moved
+===== push_back C(20) =====
+Constructor: 20                             // Construction C(20) in main
+Move constructor: 20                        // C20 moved into push_back
+Desctructor: data: null                     // Destruction of C(10) in main. data was moved
+===== push_back C(30) =====
+Constructor: 30                             // Construction C(30) in main
+Constructor: 30                             // Construction in copy constructor
+Copy constructor: 30                        // Copy Constructor
+  c30.data is not null                      // Destruction of C(30) in main
+===== push_back C(40) =====
+Constructor: 40                             // Construction C(40) in main
+Move constructor: 40                        // c40 moved into push_back
+  c40.data is null                          // c40.data has been moved
+===== Done            =====
+Desctructor: data: null                     // Destruction of C(10) in main. data was moved
+Desctructor: data: 30                       //
+Desctructor: data: 10                       //
+Desctructor: data: 20                       //
+Desctructor: data: 30                       //
+Desctructor: data: 40                       //

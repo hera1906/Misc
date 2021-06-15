@@ -2,6 +2,8 @@
 
 * [[Git_Concepts]] -- General concepts
 *
+* [[Git_Remote]] -- The Git Remote command
+*
 * [[Git_New_Repo]] -- Begin using new Repository
 * [[Git_Existing_Repo]] -- Set existing repository as origin to push to
 * [[Git_Clone_Repo]] -- Clone repository
