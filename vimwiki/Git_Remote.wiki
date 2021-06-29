@@ -4,4 +4,4 @@ git remote -v                           # See information about remote repos
 git remote add upstream https://gitlab.hbm.com/share/jetproxy.git # Add repo under an alias
 
 git fetch upstream  # Fetch from a repo
-git fetch upstream master # Pull from a repo and merge into the given branch (here master)
+git pull upstream master # Pull from a repo and merge into the given branch (here master)

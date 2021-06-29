@@ -48,6 +48,7 @@ alias gitv="git difftool"
 alias gitg="git difftool -g"
 
 alias uae="nohup UaExpert-1.5.1-331-x86_64.AppImage &"
+alias uam="UaModeler-bin-linux-x86_64-1.6.5-472.AppImage &"
 
 #alias vi=vimx
 #alias netbeans='/usr/local/netbeans-8.2/bin/netbeans'

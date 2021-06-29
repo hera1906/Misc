@@ -4,11 +4,11 @@
 == List branch ==
 
     git branch [-a] [-v]                      # List existing branches
+                                              # -a: Both local and remote branches, -v: Verbose
 
 == Switch branch ==
     git checkout <branch>                     # Switch to branch (update index and work tree, set HEAD)
                                               # local changes are kept so they can be committed
-                                              # -a: Both local and remote branches, -v: Verbose
 
 == Checkout/Clone branch ==
 
